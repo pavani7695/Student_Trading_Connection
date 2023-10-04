@@ -49,4 +49,15 @@ public class UserController {
     public List<User> getAllUsers() {
         return service.getAllUsers();
     }
+
+    @GetMapping("/{userId}")
+    public User getUserById(@PathVariable int userId) throws Exception{
+        User user = service.getUserById(userId);
+        if (user == null) {
+            // Handle the case where the user with the specified ID is not found.
+            throw new Exception("User with ID " + userId + " not found");
+        }
+        return user;
+    }
+
 }

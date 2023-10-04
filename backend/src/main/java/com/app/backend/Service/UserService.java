@@ -27,4 +27,7 @@ public class UserService {
         return repo.findAll();
     }
 
+    public User getUserById(int userId) {
+        return repo.findById(userId).orElse(null);
+    }
 }
