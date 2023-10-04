@@ -30,7 +30,7 @@ public class UserController {
             }
         }
         String tempProfileLevel = user.getProfileLevel();
-        if(tempProfileLevel==null)
+        if(tempProfileLevel ==null)
             user.setProfileLevel("Bronze");
         return service.saveUser(user);
     }
