@@ -23,4 +23,3 @@ public class Product {
     private int isInPersonInspectionRequest;
     private int isGroupPurchase;
 }
-
