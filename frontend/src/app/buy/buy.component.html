@@ -1,1 +1,7 @@
-<p>buy works!</p>
+<div *ngFor="let product of products">
+  <div class="product-card">
+    <h2>{{ product.title }}</h2>
+    <p>Price: ${{ product.price }}</p>
+    <button (click)="viewProduct(product)">View</button>
+  </div>
+</div>

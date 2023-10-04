@@ -22,7 +22,5 @@ public class Product {
     private String category;
     private int isInPersonInspectionRequest;
     private int isGroupPurchase;
-
-    // Getters and setters
 }
 
