@@ -1,14 +1,16 @@
 package com.app.backend.Service;
 
-import com.app.backend.Enitity.User;
-import com.app.backend.Repository.RegistrationRepository;
+import com.app.backend.Entity.User;
+import com.app.backend.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class RegistrationService {
+public class UserService {
     @Autowired
-    private RegistrationRepository repo;
+    private UserRepository repo;
     public User saveUser(User user){
         return repo.save(user);
     }
@@ -20,4 +22,9 @@ public class RegistrationService {
     public User fetchUserByEmailIdAndPassword(String emailId, String password) {
         return repo.findByEmailIdAndPassword(emailId, password);
     }
+
+    public List<User> getAllUsers() {
+        return repo.findAll();
+    }
+
 }

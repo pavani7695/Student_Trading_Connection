@@ -1,4 +1,4 @@
-package com.app.backend.Enitity;
+package com.app.backend.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,5 +19,5 @@ public class User {
     private String emailId;
     private String userName;
     private String password;
-
+    private String profileLevel;
 }

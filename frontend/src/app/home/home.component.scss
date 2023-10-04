@@ -1,0 +1,23 @@
+/* Add your CSS styles here to style the navigation bar */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.navbar-left {
+  flex: 1;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 20px;
+}
