@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginSuccessComponent } from './services/login-success/login-success.component';
 import { HomeComponent } from './home/home.component';
 import { SellComponent } from './sell/sell.component';
 import { BuyComponent } from './buy/buy.component';
@@ -17,7 +16,6 @@ import { BuyComponent } from './buy/buy.component';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    LoginSuccessComponent,
     HomeComponent,
     SellComponent,
     BuyComponent

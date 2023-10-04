@@ -4,6 +4,7 @@ import { NgForm } from "@angular/forms";
 import { RegistrationService } from "../services/registration/registration.service";
 import { User } from "../models/user/user";
 import { Router } from "@angular/router";
+import { UserService } from "../services/user-service/user.service";
 
 @Component({
   selector: "app-login",
@@ -13,14 +14,17 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   user = new User();
   errorMsg = "";
-  constructor(private _service: RegistrationService, private _router: Router) {}
+  constructor(private _service: RegistrationService, private _router: Router, private _userService: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   loginUser() {
     this._service.loginUserFromRemote(this.user).subscribe(
       (data) => {
         console.log(data);
+        this._userService.setUser(data);
         this._router.navigate(['/home']);
         // this._router.navigate(["/home"], {
         //   skipLocationChange: true,

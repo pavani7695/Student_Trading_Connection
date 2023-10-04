@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { LoginSuccessComponent } from './services/login-success/login-success.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { SellComponent } from './sell/sell.component';
@@ -9,7 +8,6 @@ import { BuyComponent } from './buy/buy.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "loginSucess", component: LoginSuccessComponent },
   { path: "registration", component: RegistrationComponent },
   { path: "login", component: LoginComponent },
   {
