@@ -29,8 +29,8 @@ public class UserController {
                 throw new Exception("User with " + tempEmailId + " already exists");
             }
         }
-        String tempProfilevel = user.getProfileLevel();
-        if(tempProfilevel==null)
+        String tempProfileLevel = user.getProfileLevel();
+        if(tempProfileLevel==null)
             user.setProfileLevel("Bronze");
         return service.saveUser(user);
     }
