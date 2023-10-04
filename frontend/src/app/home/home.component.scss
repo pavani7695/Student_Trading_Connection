@@ -1,23 +1,31 @@
-/* Add your CSS styles here to style the navigation bar */
+/* Reset some default styles */
+body, html, ul, li, a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* Define styles for the navigation bar */
 .navbar {
-  background-color: #333;
-  color: #fff;
+  background-color: #333; /* Background color for the navigation bar */
+  color: #fff; /* Text color for links */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Space "STC" on the left and links on the right */
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 20px; /* Adjust as needed */
 }
 
 .navbar a {
-  color: #fff;
-  margin-right: 20px;
+  color: #fff; /* Text color for links */
+  margin-right: 20px; /* Add some spacing between links */
 }
 
 .navbar-left {
-  flex: 1;
+  flex: 1; /* Takes up as much space as needed to push links to the right */
 }
 
 .navbar-right {
   display: flex;
-  gap: 20px;
+  gap: 20px; /* Adjust the spacing between links */
 }

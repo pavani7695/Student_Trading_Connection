@@ -1,20 +1,11 @@
-<div class="page-container">
-    <nav class="navbar">
+<nav class="navbar">
   <div class="navbar-left">
     <a routerLink="/home">STC</a>
   </div>
   <div class="navbar-right">
-    <a  routerLink="/home/buy" routerLinkActive="selected" class="list-item">Buy</a>
-    <a  routerLink="/home/sell" routerLinkActive="selected" class="list-item"> Sell</a>
-    <a  routerLink="" routerLinkActive="selected" class="list-item"> Logout</a>
-                
+    <a routerLink="sell">Sell</a>
+    <a routerLink="buy">Buy</a>
+    <a>Log Out</a>
   </div>
 </nav>
-
-    
-    <div class="page-content-container">
-            <!-- <h1 class="heading">Welcome {{user.userName}}, to PlanYourTrip</h1> -->
-        <router-outlet></router-outlet>
-    </div>
-
-</div>
+<router-outlet></router-outlet>

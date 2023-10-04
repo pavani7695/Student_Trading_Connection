@@ -8,13 +8,19 @@ import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginSuccessComponent } from './services/login-success/login-success.component';
+import { HomeComponent } from './home/home.component';
+import { SellComponent } from './sell/sell.component';
+import { BuyComponent } from './buy/buy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    LoginSuccessComponent
+    LoginSuccessComponent,
+    HomeComponent,
+    SellComponent,
+    BuyComponent
   ],
 
   // * 1. To use ngForm, add FormModule -> go to login/component.ts
