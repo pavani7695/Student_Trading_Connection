@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { SellComponent } from './sell/sell.component';
 import { BuyComponent } from './buy/buy.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BuyComponent } from './buy/buy.component';
     RegistrationComponent,
     HomeComponent,
     SellComponent,
-    BuyComponent
+    BuyComponent,
+    ProfileComponent
   ],
 
   // * 1. To use ngForm, add FormModule -> go to login/component.ts

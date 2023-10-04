@@ -5,6 +5,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { SellComponent } from './sell/sell.component';
 import { BuyComponent } from './buy/buy.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: "sell", component: SellComponent },
-      { path: "buy", component: BuyComponent }
+      { path: "buy", component: BuyComponent },
+      { path: "profile", component:  ProfileComponent},
     ],
   },
 ];
