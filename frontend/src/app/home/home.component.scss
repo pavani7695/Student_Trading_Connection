@@ -50,3 +50,34 @@
     // Style your featured products section here
   }
 }
+
+.list-item {
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  padding: 10px 20px;
+  position: relative;
+  display: inline;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+
+  /* Add a background color for unselected items */
+  background-color: transparent;
+}
+
+.list-item:hover {
+  background-color: gray;
+}
+
+
+.list-item:hover::before {
+  opacity: 0.5;
+  transform: scaleY(0.5);
+}
+
+
+.list-item.selected {
+  background-color: gray; /* Background color for the selected item */
+  color: #fff; /* Text color for the selected item */
+}
+
+

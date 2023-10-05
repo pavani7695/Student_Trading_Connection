@@ -1,12 +1,12 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <a routerLink="/home">STC</a>
+    <a routerLink="/home/buy">STC</a>
   </div>
   <div class="navbar-right">
-    <a routerLink="sell">Sell</a>
-    <a routerLink="buy">Buy</a>
-    <a routerLink="profile">{{user.userName}}</a>
-    <a routerLink="">Log Out</a>
+    <a routerLink="buy" routerLinkActive="selected" class="list-item">Buy</a>
+    <a routerLink="sell" routerLinkActive="selected" class="list-item">Sell</a>
+    <a routerLink="profile" routerLinkActive="selected" class="list-item">{{user.userName}}</a>
+    <a routerLink="" class="list-item">Log Out</a>
   </div>
 </nav>
 

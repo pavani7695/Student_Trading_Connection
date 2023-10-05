@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       (data) => {
         console.log(data);
         this._userService.setUser(data);
-        this._router.navigate(['/home']);
+        this._router.navigate(['/home/buy']);
         // this._router.navigate(["/home"], {
         //   skipLocationChange: true,
         // });
