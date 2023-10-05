@@ -1,0 +1,49 @@
+/* SCSS for the container */
+.product-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  margin: 20px;
+  margin: 0 auto;
+}
+
+/* Styling for the title */
+.product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Styling for the price */
+.product-price {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #009688; /* Green color */
+}
+
+/* Styling for the description */
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* Styling for the "View Seller Details" button */
+.view-seller-button {
+  background-color: #009688; /* Green color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.view-seller-button:hover {
+  background-color: #007066; /* Darker shade of green on hover */
+}
