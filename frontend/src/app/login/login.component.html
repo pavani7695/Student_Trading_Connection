@@ -1,4 +1,4 @@
-<div class="container">
+<div class="main-container"><div class="container">
   <h2>Login</h2>
   <form #loginform="ngForm" (ngSubmit)="loginUser()">
     <small class="text-danger">{{ errorMsg }}</small>
@@ -52,4 +52,5 @@
   <!-- * <small class="float-right" (click)="gotoRegistration()">New user? Register here</small> -->
   <!-- Method-2 -->
   <small [routerLink]="['/registration']">New user? Register here!!</small>
+</div>
 </div>

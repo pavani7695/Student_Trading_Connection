@@ -1,31 +1,52 @@
-/* Reset some default styles */
-body, html, ul, li, a {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-}
-
-/* Define styles for the navigation bar */
 .navbar {
-  background-color: #333; /* Background color for the navigation bar */
-  color: #fff; /* Text color for links */
+  background-color: #007BFF;
+  color: #fff;
   display: flex;
-  justify-content: space-between; /* Space "STC" on the left and links on the right */
-  align-items: center;
-  padding: 10px 20px; /* Adjust as needed */
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .navbar a {
-  color: #fff; /* Text color for links */
-  margin-right: 20px; /* Add some spacing between links */
+  text-decoration: none;
+  color: #fff;
+  margin-right: 10px;
 }
 
 .navbar-left {
-  flex: 1; /* Takes up as much space as needed to push links to the right */
+  display: flex;
+  align-items: center;
 }
 
-.navbar-right {
-  display: flex;
-  gap: 20px; /* Adjust the spacing between links */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+
+  .banner {
+    background-image: url('your-banner-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .featured-products {
+    margin-top: 30px;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    // Style your featured products section here
+  }
 }
