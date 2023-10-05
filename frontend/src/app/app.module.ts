@@ -12,6 +12,7 @@ import { SellComponent } from './sell/sell.component';
 import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SellerDetailsComponent } from './seller-details/seller-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     SellComponent,
     BuyComponent,
     ProfileComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SellerDetailsComponent
   ],
 
   // * 1. To use ngForm, add FormModule -> go to login/component.ts

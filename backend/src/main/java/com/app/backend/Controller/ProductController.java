@@ -1,6 +1,7 @@
 package com.app.backend.Controller;
 
 import com.app.backend.Entity.Product;
+import com.app.backend.Entity.User;
 import com.app.backend.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,5 +35,6 @@ System.out.println("Title:"+product.getTitle());
     public Product getProductByID(@PathVariable int productId) {
         return productService.getProductByID(productId);
     }
+
 
 }

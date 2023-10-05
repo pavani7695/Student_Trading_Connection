@@ -13,7 +13,8 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:9292/users/login", user);
   }
   public registraterUserFromRemote(user: User): Observable<any> {
-    console.log(user);
     return this._http.post<any>("http://localhost:9292/users/register", user);
   }
+
+
 }

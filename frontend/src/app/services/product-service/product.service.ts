@@ -25,4 +25,8 @@ export class ProductService {
   public getProductByIdFromRemote(id: number): Observable<any> {
     return this.http.get<any>(`http://localhost:9292/products/${id}`);
   }
+
+  public getSellerDetailsFromRemote(sellerID: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:9292/users/${sellerID}`);
+  }
 }
