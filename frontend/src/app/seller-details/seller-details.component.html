@@ -1,2 +1,15 @@
-<p>seller-details works!</p>
-<h1>Seller: {{seller.userName}}</h1>
+<div class="seller-details">
+  <div class="seller-info">
+    <h1>Seller: {{ seller.userName }}</h1>
+    <p>Email: {{ seller.emailId }}</p>
+    <p>Phone: {{ seller.phone }}</p>
+  </div>
+  <div class="seller-address">
+    <h2>Address:</h2>
+    <p>{{ seller.address }}</p>
+  </div>
+  <div class="seller-profile">
+    <h2>Profile Level:</h2>
+    <p>{{ seller.profileLevel }}</p>
+  </div>
+</div>

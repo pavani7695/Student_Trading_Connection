@@ -18,6 +18,8 @@ public class User {
     private int id;
     private String emailId;
     private String userName;
-    private String password; 
+    private String password;
     private String profileLevel;
+    private String address;
+    private String phone;
 }

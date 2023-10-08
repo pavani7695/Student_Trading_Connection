@@ -4,4 +4,6 @@ export class User {
   userName!: string;
   password!: string;
   profileLevel!: string;
+  address!: string;
+  phone!: string;
 }
