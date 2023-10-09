@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE-edge">
+     <title>navbar</title>
+     <meta name="description" content="">
+     <meta name="viewport" content="width=device-width">
+     <link rel="login.component" href="login.component.scss">
+
+  </head>
+  <body>
+    <div class="newegi">
+   <header>
+    <div class="icon">
+      <h2 class="logo">STC</h2>
+     </div>
+    <nav>
+      <ul class="nav_links">
+         <li><a href="#">services</a></li>
+         <li><a href="#">project</a></li>
+         <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+   </header> 
+
+
+
 <div class="main-container"><div class="container">
   <h2>Login</h2>
   <form #loginform="ngForm" (ngSubmit)="loginUser()">
@@ -54,3 +82,6 @@
   <small [routerLink]="['/registration']">New user? Register here!!</small>
 </div>
 </div>
+</div>
+</body>
+</html>
