@@ -1,5 +1,9 @@
 /* product-list.component.css */
-
+.main-container {
+  background-image: url(../../assets/bg1.avif);
+  background-size: cover;
+  padding: 1rem 5rem;
+}
 .product-card {
   border: 1px solid #ccc;
   border-radius: 5px;
