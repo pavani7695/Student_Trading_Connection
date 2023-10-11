@@ -1,49 +1,48 @@
-/* SCSS for the container */
-.product-container {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  margin: 20px;
-  margin: 0 auto;
+.main-container {
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
 }
 
-/* Styling for the title */
+.product-container {
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 20px;
+  height: auto;
+}
+
 .product-title {
   font-size: 1.5rem;
-  font-weight: bold;
   margin: 10px 0;
-  color: #333;
+  color: #fff;
 }
 
-/* Styling for the price */
 .product-price {
   font-size: 1.2rem;
+  color: #007bff;
   margin: 10px 0;
-  color: #009688; /* Green color */
 }
 
-/* Styling for the description */
 .product-description {
-  font-size: 1rem;
-  color: #555;
   margin: 10px 0;
+  color: #fff;
 }
 
-/* Styling for the "View Seller Details" button */
 .view-seller-button {
-  background-color: #009688; /* Green color */
+  background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  font-size: 1rem;
+  margin: 10px 0;
   transition: background-color 0.3s ease;
-  font-weight: bold;
-  margin: 20px 0;
 }
 
 .view-seller-button:hover {
-  background-color: #007066; /* Darker shade of green on hover */
+  background-color: #0056b3;
 }
