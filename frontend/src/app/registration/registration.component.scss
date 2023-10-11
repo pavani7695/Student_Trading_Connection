@@ -3,97 +3,82 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+    background-image: url(../../assets/bg1.avif);
+    background-size: cover;
+
 }
 
 .container {
   max-width: 400px;
-  padding: 20px;
-  border: 1px solid #ccc;
+}
+
+
+/* Common styles for the container and form */
+.main-container, .container {
+  background-color: #333;
+  color: #fff;
   border-radius: 5px;
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-  color: #333;
-}
-
-form {
-  margin-top: 20px;
+  text-align: center;
+  color: #fff;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-label {
-  display: block;
+.form-group label {
   font-weight: bold;
-  color: #555;
+  color: #fff;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.form-control {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
 }
 
-.checkbox {
-  margin-bottom: 15px;
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-button {
-  background-color: #007BFF;
+.checkbox label {
+  display: block;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.btn {
+  background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 10px 20px;
-  font-weight: bold;
   cursor: pointer;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.btn:hover {
+  background-color: #0056b3;
 }
 
 .text-danger {
   color: #dc3545;
-  font-size: 12px;
+}
+
+.has-error .text-danger {
+  color: #dc3545;
+  font-size: 14px;
   display: block;
 }
 
-.sucessMsg {
-  color: #28a745;
-}
-
-.float-right {
-  display: block;
-  margin-top: 10px;
-  color: #007BFF;
-  text-decoration: none;
-  text-align: right;
-}
-
-.float-right:hover {
-  text-decoration: underline;
-}
-
-.has-error {
-  input {
-    border: 1px solid #dc3545;
-  }
-
-  small {
-    display: block;
-    color: #dc3545;
-  }
-
-  .sucessMsg {
-    display: none;
-  }
+.d-none {
+  display: none;
 }
