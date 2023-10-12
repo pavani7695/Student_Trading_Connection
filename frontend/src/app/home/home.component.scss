@@ -32,7 +32,9 @@
 }
 
 .list-item:hover {
-  background-color: gray;
+  background-color: #333;
+    border-radius: 10px;
+
 }
 
 
@@ -43,8 +45,9 @@
 
 
 .list-item.selected {
-  background-color: gray; /* Background color for the selected item */
+  background-color: #333; /* Background color for the selected item */
   color: #fff; /* Text color for the selected item */
+  border-radius: 10px;
 }
 
 
