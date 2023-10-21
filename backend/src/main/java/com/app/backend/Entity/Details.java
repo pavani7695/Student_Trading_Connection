@@ -11,16 +11,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Product {
+public class Details {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productID;
-    private int sellerID;
-    private int buyerID;
-    private String title;
-    private String description;
-    private int price;
-    private String category;
-    private int status;
-    private boolean isGroupPurchase;
+    private int detailID;
+    private String phone;
+    private String address;
+    private String level;
+
+    @OneToOne(mappedBy = "details", cascade = CascadeType.ALL)
+    private User user;
 }

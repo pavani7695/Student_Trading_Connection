@@ -1,16 +1,58 @@
 package com.app.backend.Controller;
 
+import com.app.backend.Entity.Details;
 import com.app.backend.Entity.User;
+import com.app.backend.Repository.UserRepository;
 import com.app.backend.Service.UserService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.management.DescriptorAccess;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/users")
 public class UserController {
+
+
+
+    Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @Autowired
+    private UserRepository repo;
+    @GetMapping("/test")
+    public String tests(){
+        User user = new User();
+        user.setUserName("NeoPix");
+        user.setPassword("123");
+        user.setEmailId("neopix@gmail.com");
+
+        Details details = new Details();
+        details.setAddress("Redwood hills");
+        details.setLevel("Silver");
+        details.setPhone("91287349823");
+
+        user.setDetails(details);
+        details.setUser(user);
+
+
+        User save = repo.save(user);
+
+
+        logger.info(save.getUserName());
+        return  "JSK!!";
+    }
+
+
+
+
 
     private final UserService service;
 
@@ -29,9 +71,9 @@ public class UserController {
                 throw new Exception("User with " + tempEmailId + " already exists");
             }
         }
-        String tempProfileLevel = user.getProfileLevel();
-        if(tempProfileLevel ==null)
-            user.setProfileLevel("Bronze");
+//        String tempProfileLevel = user.getProfileLevel();
+//        if(tempProfileLevel ==null)
+//            user.setProfileLevel("Bronze");
         return service.saveUser(user);
     }
 
