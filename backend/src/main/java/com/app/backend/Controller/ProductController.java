@@ -22,7 +22,7 @@ public class ProductController {
 
     @PostMapping("/saveProduct")
     public Product saveProduct(@RequestBody Product product) {
-System.out.println("Title:"+product.getTitle());
+        System.out.println("Title:"+product.getTitle());
         return productService.saveProduct(product);
     }
 

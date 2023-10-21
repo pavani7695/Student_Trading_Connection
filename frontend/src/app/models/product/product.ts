@@ -1,10 +1,11 @@
 export class Product {
   productID!: number;
   sellerID!: number;
+  buyerID: number = -1;
   title!: string;
   description!: string;
   price!: number;
   category!: string;
-  isInPersonInspectionRequest!: number;
-  isGroupPurchase!: number;
+  status: number=0;
+  isGroupPurchase: number=0;
 }

@@ -2,7 +2,7 @@
     <div class="container">
         <h2>Registration</h2>
         <form #RegistrationForm="ngForm" (ngSubmit)="registerUser()">
-            <small class="sucessMsg text-danger">{{msg}}</small>
+            <small class="text-success">{{msg}}</small>
             
             <div class="form-group" [class.has-error]="email.invalid && email.touched">
                 <label for="email">Email:</label>

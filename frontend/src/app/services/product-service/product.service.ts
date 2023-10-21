@@ -29,4 +29,8 @@ export class ProductService {
   public getSellerDetailsFromRemote(sellerID: number): Observable<any> {
     return this.http.get<any>(`http://localhost:9292/users/${sellerID}`);
   }
+
+  public addProductFromRemote(product: Product): Observable<any> {
+    return this.http.post<any>("http://localhost:9292/products/saveProduct",product);
+  }
 }

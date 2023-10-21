@@ -16,10 +16,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productID;
     private int sellerID;
+    private int buyerID;
     private String title;
     private String description;
     private int price;
     private String category;
-    private int isInPersonInspectionRequest;
-    private int isGroupPurchase;
+    private int status = 0;
+    private int isGroupPurchase = 0;
 }
