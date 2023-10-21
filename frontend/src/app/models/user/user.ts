@@ -3,6 +3,7 @@ export class User {
   emailId!: string;
   userName!: string;
   password!: string;
+  cpassword!: string;
   profileLevel!: string;
   address!: string;
   phone!: string;
