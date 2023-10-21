@@ -19,7 +19,9 @@ public class User {
     private String emailId;
     private String userName;
     private String password;
-    private String profileLevel;
+    private String profileLevel = "Bronze";
     private String address;
     private String phone;
+    private int bonusPoints = 0;
+    private int userType = 0;
 }
