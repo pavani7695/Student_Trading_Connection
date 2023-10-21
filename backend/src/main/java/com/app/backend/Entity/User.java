@@ -1,9 +1,11 @@
 package com.app.backend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(name = "Users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -19,5 +21,6 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "detail_Id")
-    private Details details;
+    @JsonIgnore
+    private Detail details;
 }

@@ -1,6 +1,6 @@
 package com.app.backend.Controller;
 
-import com.app.backend.Entity.Details;
+import com.app.backend.Entity.Detail;
 import com.app.backend.Entity.User;
 import com.app.backend.Repository.UserRepository;
 import com.app.backend.Service.UserService;
@@ -34,7 +34,7 @@ public class UserController {
         user.setPassword("123");
         user.setEmailId("neopix@gmail.com");
 
-        Details details = new Details();
+        Detail details = new Detail();
         details.setAddress("Redwood hills");
         details.setLevel("Silver");
         details.setPhone("91287349823");
@@ -53,7 +53,7 @@ public class UserController {
 
 
 
-
+    @Autowired
     private final UserService service;
 
     @Autowired
@@ -71,9 +71,6 @@ public class UserController {
                 throw new Exception("User with " + tempEmailId + " already exists");
             }
         }
-//        String tempProfileLevel = user.getProfileLevel();
-//        if(tempProfileLevel ==null)
-//            user.setProfileLevel("Bronze");
         return service.saveUser(user);
     }
 
@@ -93,6 +90,7 @@ public class UserController {
 
     @GetMapping("")
     public List<User> getAllUsers() {
+
         return service.getAllUsers();
     }
 
