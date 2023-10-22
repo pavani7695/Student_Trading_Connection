@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,18 +25,19 @@ import { SellerDetailsComponent } from './seller-details/seller-details.componen
     BuyComponent,
     ProfileComponent,
     ProductDetailsComponent,
-    SellerDetailsComponent
+    SellerDetailsComponent,
   ],
 
   // * 1. To use ngForm, add FormModule -> go to login/component.ts
   // * HttpClientModule is used to make http request
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -5,6 +5,8 @@ import { ProductService } from '../services/product-service/product.service';
 import { Product } from '../models/product/product';
 import { UserService } from '../services/user-service/user.service';
 import { User } from '../models/user/user';
+import { MatDialog } from "@angular/material/dialog";
+
 
 @Component({
   selector: "app-sell",
@@ -18,7 +20,8 @@ export class SellComponent {
   constructor(
     private productService: ProductService,
     private userService: UserService,
-    private _router: Router
+    private _router: Router,
+    private dialog: MatDialog
   ) {
     this.user = userService.getUser();
     this.product.sellerID = this.user.id;
@@ -60,8 +63,21 @@ export class SellComponent {
     );
   }
 
-  // * Delete Product
+
+  // * Delete Product Confirmation
   deleteProduct(product: Product) {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+    if (confirmation) {
+      // User clicked "OK," delete the product here
+      // Call your deleteProduct logic or API call
+      this.deleteProductLogic(product);
+    }
+  }
+
+  // * Delete Product
+  deleteProductLogic(product: Product) {
     this.productService.deleteProductFromRemote(product.productID).subscribe(
       (data) => {
         console.log("Product deleted" + JSON.stringify(data));
@@ -72,6 +88,5 @@ export class SellComponent {
         console.log(error);
       }
     );
-    
   }
 }
