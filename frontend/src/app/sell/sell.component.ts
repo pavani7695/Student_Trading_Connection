@@ -37,14 +37,13 @@ export class SellComponent {
         );
         console.log("Seller:" + this.user.userName);
         this.msg = "Product Added";
+        this.getProductSoldByMe();
+        alert(this.msg);
       },
       (error) => {
         console.log("Exception occured while adding a product");
       }
     );
-
-    this.getProductSoldByMe();
-
   }
 
   // * Get Product which I am selling
@@ -67,6 +66,7 @@ export class SellComponent {
       (data) => {
         console.log("Product deleted" + JSON.stringify(data));
         this.getProductSoldByMe();
+        alert("Product Deleted");
       },
       (error) => {
         console.log(error);
