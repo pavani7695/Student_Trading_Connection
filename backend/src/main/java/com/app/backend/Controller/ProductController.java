@@ -41,4 +41,9 @@ public class ProductController {
         return productService.getProductsBySellerID(sellerID);
     }
 
+    @DeleteMapping("{productID}")
+    public void deleteProductByProductID(@PathVariable int productID){
+        productService.deleteProductByID(productID);
+    }
+
 }

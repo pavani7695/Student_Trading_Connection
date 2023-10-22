@@ -33,5 +33,9 @@ public class ProductService {
         return productRepository.findBySellerID(sellerID);
     }
 
+    public void deleteProductByID(int productID){
+        productRepository.deleteById(productID);
+    }
+
 }
 
