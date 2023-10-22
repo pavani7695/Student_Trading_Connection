@@ -18,19 +18,25 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
+  BASE_URL = "http://localhost:9292";
+
   public getProductsFromRemote(): Observable<any> {
-    return this.http.get<any>("http://localhost:9292/products");
+    return this.http.get<any>(`${this.BASE_URL}/products`);
   }
 
   public getProductByIdFromRemote(id: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:9292/products/${id}`);
+    return this.http.get<any>(`${this.BASE_URL}/products/${id}`);
   }
 
   public getSellerDetailsFromRemote(sellerID: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:9292/users/${sellerID}`);
+    return this.http.get<any>(`${this.BASE_URL}/users/${sellerID}`);
   }
 
   public addProductFromRemote(product: Product): Observable<any> {
-    return this.http.post<any>("http://localhost:9292/products/saveProduct",product);
+    return this.http.post<any>(`${this.BASE_URL}/products/saveProduct`, product);
+  }
+
+  public getProductsBySellerIDFromRemote(selerID: number): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}/products/seller/${selerID}`);
   }
 }

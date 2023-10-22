@@ -12,13 +12,17 @@ import { User } from '../models/user/user';
   styleUrls: ["./sell.component.scss"],
 })
 export class SellComponent {
-
-  product = new Product;
-  user = new User;
+  product = new Product();
+  user = new User();
   msg = "";
-  constructor(private productService: ProductService, private userService: UserService ,private _router: Router) {
+  constructor(
+    private productService: ProductService,
+    private userService: UserService,
+    private _router: Router
+  ) {
     this.user = userService.getUser();
     this.product.sellerID = this.user.id;
+    this.getProductSoldByMe();
   }
 
   onInit() {}
@@ -27,13 +31,27 @@ export class SellComponent {
     this.productService.addProductFromRemote(this.product).subscribe(
       (data) => {
         console.log(
-          "Responce recived while adding a product" + JSON.stringify(this.product)
+          "Responce recived while adding a product" +
+            JSON.stringify(this.product)
         );
-        console.log("Seller:"+this.user.userName)
+        console.log("Seller:" + this.user.userName);
         this.msg = "Product Added";
       },
       (error) => {
         console.log("Exception occured while adding a product");
+      }
+    );
+  }
+
+  myProducts: Product[] = [];
+  getProductSoldByMe() {
+    this.productService.getProductsBySellerIDFromRemote(this.user.id).subscribe(
+      (data) => {
+        console.log("Products sold by me: " + JSON.stringify(data));
+        this.myProducts = data;
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }

@@ -36,4 +36,9 @@ public class ProductController {
         return productService.getProductByID(productId);
     }
 
+    @GetMapping("/seller/{sellerID}")
+    public List<Product> getProductBySellerID(@PathVariable int sellerID){
+        return productService.getProductsBySellerID(sellerID);
+    }
+
 }

@@ -11,11 +11,11 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserRepository repo;
-    public User saveUser(User user){
+    public User saveUser(User user) {
         return repo.save(user);
     }
 
-    public User fetchUserByEmailId(String emailID){
+    public User fetchUserByEmailId(String emailID) {
         return repo.findByEmailId(emailID);
     }
 

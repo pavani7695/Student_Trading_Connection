@@ -29,5 +29,9 @@ public class ProductService {
         return productRepository.findById(productId).orElse(null);
     }
 
+    public List<Product> getProductsBySellerID(int sellerID){
+        return productRepository.findBySellerID(sellerID);
+    }
+
 }
 

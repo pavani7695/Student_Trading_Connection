@@ -1,70 +1,106 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dark theme styles */
 .main-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  // height: 100vh;
   background-image: url(../../assets/bg1.avif);
   background-size: cover;
+  background-color: #111; /* Dark background color */
+  color: #fff; /* Text color */
 }
-/* Dark theme for the form container */
+
 .add-product {
-  width: 40rem;
-  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for the form */
   padding: 20px;
-  border: 1px solid #333;
+  margin: 20px 0px;
   border-radius: 5px;
-  background-color: #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 400px;
+}
+
+.add-product h2 {
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form .form-group {
+  margin: 10px 0;
+  text-align: left;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #333; /* Dark input field background */
   color: #fff;
 }
 
-/* Dark theme for the form heading */
-.add-product h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+form button {
+  background: #007bff; /* Blue button background */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Products Section */
+.products-section {
+  margin-top: 20px;
+  width: 400px;
   text-align: center;
 }
 
-/* Dark theme for success message (assuming it's for validation or feedback) */
-.sucessMsg {
-  color: #5bc0de; /* Light blue color for success message */
-  font-weight: bold;
+.products-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-/* Dark theme for form labels */
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #5bc0de; /* Light blue color for labels */
-}
-
-/* Dark theme for form inputs and textarea */
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group textarea {
-  width: 100%;
+.product-card {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for product cards */
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #444;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: #333;
-  color: #fff;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
-/* Dark theme for the submit button */
-button[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff; /* Blue color for the button */
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
+.product-card h2 {
+  font-size: 20px;
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+.product-card p {
+  font-size: 16px;
 }
+
+/* Success message */
+.successMsg {
+  color: #28a745; /* Green color for success messages */
+}
+
+
