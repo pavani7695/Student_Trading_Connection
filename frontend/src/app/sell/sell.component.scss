@@ -19,7 +19,7 @@ body {
 
 /* Form Styles */
 .add-product {
-  width: 400px;
+  width: 500px;
   padding: 20px;
   border: 1px solid #333;
   border-radius: 5px;
@@ -77,7 +77,7 @@ button[type="submit"]:hover {
 
 /* Product List Styles */
 .products-section {
-  width: 400px;
+  width: 500px;
   padding: 20px;
   border: 1px solid #333;
   border-radius: 5px;
@@ -118,4 +118,35 @@ button[type="submit"]:hover {
 
 .product-card button:hover {
   background-color: #bb2d3b; /* Darker red on hover */
+}
+
+
+/* Dropdown Styles */
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Styling the dropdown options */
+.form-group select option {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Styling the dropdown arrow */
+.form-group select::-ms-expand,
+.form-group select::-ms-expand {
+  display: none; /* Hide the default arrow in IE */
+}
+
+/* Styling the dropdown on hover */
+.form-group select:hover {
+  background-color: #444; /* Darker background on hover */
 }
