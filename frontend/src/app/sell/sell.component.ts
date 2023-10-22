@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { RegistrationService } from '../services/registration/registration.service';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product-service/product.service';
@@ -6,7 +6,8 @@ import { Product } from '../models/product/product';
 import { UserService } from '../services/user-service/user.service';
 import { User } from '../models/user/user';
 import { MatDialog } from "@angular/material/dialog";
-
+import 'bootstrap/js/dist/modal'; // Import Bootstrap's modal module
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: "app-sell",
@@ -30,7 +31,10 @@ export class SellComponent {
 
   ngOnInit() {}
 
+  // --------------------------------------------------------------------------------------------------------------------------------
   // * Add Product to sell
+  @ViewChild("addProductForm", { static: false }) addProductForm!: NgForm;
+
   addProduct() {
     this.productService.addProductFromRemote(this.product).subscribe(
       (data) => {
@@ -42,6 +46,7 @@ export class SellComponent {
         this.msg = "Product Added";
         this.getProductSoldByMe();
         alert(this.msg);
+        this.addProductForm.resetForm();
       },
       (error) => {
         console.log("Exception occured while adding a product");
@@ -49,6 +54,7 @@ export class SellComponent {
     );
   }
 
+  // --------------------------------------------------------------------------------------------------------------------------------
   // * Get Product which I am selling
   myProducts: Product[] = [];
   getProductSoldByMe() {
@@ -63,7 +69,7 @@ export class SellComponent {
     );
   }
 
-
+  // --------------------------------------------------------------------------------------------------------------------------------
   // * Delete Product Confirmation
   deleteProduct(product: Product) {
     const confirmation = window.confirm(
@@ -76,6 +82,7 @@ export class SellComponent {
     }
   }
 
+  // --------------------------------------------------------------------------------------------------------------------------------
   // * Delete Product
   deleteProductLogic(product: Product) {
     this.productService.deleteProductFromRemote(product.productID).subscribe(
@@ -89,4 +96,7 @@ export class SellComponent {
       }
     );
   }
+
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * Edit Product
 }

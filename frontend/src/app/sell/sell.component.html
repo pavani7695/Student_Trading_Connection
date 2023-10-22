@@ -1,65 +1,70 @@
 <div class="main-container">
   <div class="add-product">
-  <h2>Add Product</h2>
-  <form (ngSubmit)="addProduct()" #productForm="ngForm">
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input
-        type="text"
-        id="title"
-        [(ngModel)]="product.title"
-        name="title"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea
-        id="description"
-        [(ngModel)]="product.description"
-        name="description"
-        required
-      ></textarea>
-    </div>
-    <div class="form-group">
-      <label for="price">Price:</label>
-      <input
-        type="number"
-        id="price"
-        [(ngModel)]="product.price"
-        name="price"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="category">Category:</label>
-      <input
-        type="text"
-        id="category"
-        [(ngModel)]="product.category"
-        name="category"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="isGroupPurchase">Is Group Purchase:</label>
-      <select id="isGroupPurchase" [(ngModel)]="product.isGroupPurchase" name="isGroupPurchase">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="status">Status:</label>
-      <select id="status" [(ngModel)]="product.status" name="status">
-        <option value="0">Not Sold</option>
-        <option value="1">Inspection request</option>
-        <option value="2">Inspection request approved</option>
-        <option value="3">Product Sold</option>
-      </select>
-    </div>
-    <button type="submit">Add Product</button>
-  </form>
-</div>
+    <h2>Add Product</h2>
+
+    <form (ngSubmit)="addProduct()" #addProductForm="ngForm">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          [(ngModel)]="product.title"
+          name="title"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          [(ngModel)]="product.description"
+          name="description"
+          required
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input
+          type="number"
+          id="price"
+          [(ngModel)]="product.price"
+          name="price"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input
+          type="text"
+          id="category"
+          [(ngModel)]="product.category"
+          name="category"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="isGroupPurchase">Is Group Purchase:</label>
+        <select
+          id="isGroupPurchase"
+          [(ngModel)]="product.isGroupPurchase"
+          name="isGroupPurchase"
+        >
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" [(ngModel)]="product.status" name="status">
+          <option value="0">Not Sold</option>
+          <option value="1">Inspection request</option>
+          <option value="2">Inspection request approved</option>
+          <option value="3">Product Sold</option>
+        </select>
+      </div>
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
 
   <!-- * Display the products sold by this user -->
   <div class="products-section">
@@ -67,6 +72,7 @@
     <div *ngFor="let product of myProducts" class="product-card">
       <h2>{{ product.title }}</h2>
       <p>Price: ${{ product.price }}</p>
+      <!-- <button (click)="editProduct(product)">Edit</button> -->
       <button (click)="deleteProduct(product)">Delete</button>
     </div>
   </div>
