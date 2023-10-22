@@ -42,6 +42,9 @@ export class SellComponent {
         console.log("Exception occured while adding a product");
       }
     );
+
+    this.getProductSoldByMe();
+
   }
 
   // * Get Product which I am selling
@@ -63,11 +66,12 @@ export class SellComponent {
     this.productService.deleteProductFromRemote(product.productID).subscribe(
       (data) => {
         console.log("Product deleted" + JSON.stringify(data));
-        // this._router.navigate(["home/buy"]);
+        this.getProductSoldByMe();
       },
       (error) => {
         console.log(error);
       }
     );
+    
   }
 }
