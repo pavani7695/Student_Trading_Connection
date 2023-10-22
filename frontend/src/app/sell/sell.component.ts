@@ -18,7 +18,8 @@ export class SellComponent {
   constructor(
     private productService: ProductService,
     private userService: UserService,
-    private _router: Router
+    private _router: Router,
+    private cdr: ChangeDetectorRef
   ) {
     this.user = userService.getUser();
     this.product.sellerID = this.user.id;
@@ -37,7 +38,8 @@ export class SellComponent {
         );
         console.log("Seller:" + this.user.userName);
         this.msg = "Product Added";
-      },
+        this._router.navigate(["home/sell"]);
+      },  
       (error) => {
         console.log("Exception occured while adding a product");
       }
@@ -58,12 +60,13 @@ export class SellComponent {
     );
   }
 
+  deleteStatus = false;
   // * Delete Product
   deleteProduct(product: Product) {
     this.productService.deleteProductFromRemote(product.productID).subscribe(
       (data) => {
         console.log("Product deleted" + JSON.stringify(data));
-        // this._router.navigate(["home/buy"]);
+        this._router.navigate(["home/sell"]);
       },
       (error) => {
         console.log(error);

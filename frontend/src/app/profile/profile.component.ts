@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RegistrationService } from '../services/registration/registration.service';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user-service/user.service';
@@ -14,12 +14,20 @@ export class ProfileComponent {
   constructor(
     private _service: RegistrationService,
     private _router: Router,
-    private _userService: UserService
+    private _userService: UserService,
+    private cdr: ChangeDetectorRef
   ) {
     this.user = this._userService.getUser();
   }
 
   ngOnInit(): void {
     this.user = this._userService.getUser();
+  }
+
+  message: string = "Initial message";
+
+  updateMessage(): void {
+    this.message = "Updated message";
+    this.cdr.detectChanges(); // Trigger change detection
   }
 }
