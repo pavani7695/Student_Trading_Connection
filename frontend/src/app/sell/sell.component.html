@@ -109,6 +109,7 @@
     <div *ngFor="let product of myProducts" class="product-card">
       <h2>{{ product.title }}</h2>
       <p>Price: ${{ product.price }}</p>
+      <button (click)="deleteProduct(product)">Delete</button>
     </div>
   </div>
 </div>

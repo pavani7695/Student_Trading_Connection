@@ -10,13 +10,14 @@ import { User } from '../models/user/user';
   styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent {
+  user = new User();
   constructor(
     private _service: RegistrationService,
     private _router: Router,
     private _userService: UserService
-  ) {}
-
-  user = new User();
+  ) {
+    this.user = this._userService.getUser();
+  }
 
   ngOnInit(): void {
     this.user = this._userService.getUser();

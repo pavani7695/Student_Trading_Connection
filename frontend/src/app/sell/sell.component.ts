@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RegistrationService } from '../services/registration/registration.service';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product-service/product.service';
@@ -25,8 +25,9 @@ export class SellComponent {
     this.getProductSoldByMe();
   }
 
-  onInit() {}
+  ngOnInit() {}
 
+  // * Add Product to sell
   addProduct() {
     this.productService.addProductFromRemote(this.product).subscribe(
       (data) => {
@@ -43,12 +44,26 @@ export class SellComponent {
     );
   }
 
+  // * Get Product which I am selling
   myProducts: Product[] = [];
   getProductSoldByMe() {
     this.productService.getProductsBySellerIDFromRemote(this.user.id).subscribe(
       (data) => {
         console.log("Products sold by me: " + JSON.stringify(data));
         this.myProducts = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  // * Delete Product
+  deleteProduct(product: Product) {
+    this.productService.deleteProductFromRemote(product.productID).subscribe(
+      (data) => {
+        console.log("Product deleted" + JSON.stringify(data));
+        // this._router.navigate(["home/buy"]);
       },
       (error) => {
         console.log(error);
