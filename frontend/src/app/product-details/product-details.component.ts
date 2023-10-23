@@ -13,6 +13,7 @@ import { User } from '../models/user/user';
 export class ProductDetailsComponent {
   product: Product = new Product();
   seller: User = new User();
+  user: User = new User();
 
   constructor(
     private _router: Router,
@@ -20,6 +21,7 @@ export class ProductDetailsComponent {
     private _userService: UserService
   ) {
     this.product = this._productService.getProduct();
+    this.user = this._userService.getUser();
   }
 
   onInit() {}
@@ -58,8 +60,39 @@ export class ProductDetailsComponent {
   }
 
   // * Inperson Inspection Request *
+  // inPersonInspectionRequest(product: Product) {
+  //   this._productService
+  //     .updateProductStatus(this.user.id, this.product.productID, 1)
+  //     .subscribe(
+  //       (data) => {
+  //         console.log("InPerson Inspection Request Sent: " + data);
+  //         alert("Inspection Request sent successfully");
+  //       },
+  //       (error) => {
+  //         console.log("InPerson Inspection Request Error: " + error);
+  //         alert("Inspection Request already sent");
+  //       }
+  //     );
+  // }
+
   inPersonInspectionRequest(product: Product) {
-    console.log("InPerson Inspection Request for Product:" + product.title);
+    this._productService
+      .updateProductStatus(this.user.id, this.product.productID, 1)
+      .subscribe(
+        (data) => {
+          console.log("InPerson Inspection Request Sent: " + data);
+          alert("Inspection Request sent successfully");
+        },
+        (error) => {
+          if (error.status === 403) {
+            console.log("InPerson Inspection Request Error: " + error);
+            alert("You are not authorized to update this product.");
+          } else {
+            console.log("InPerson Inspection Request Error: " + error);
+            alert("An error occurred while sending the inspection request.");
+          }
+        }
+      );
   }
 
   //  * Buy *

@@ -67,4 +67,9 @@ export class ProductService {
     return this.http.get<any>(`${this.BASE_URL}/products/${userID}/${status}`);
   }
 
+  // * Update product status *
+  public updateProductStatus(userID: number, productID: number, status: number): Observable<any> {
+    return this.http.patch<any>(`${this.BASE_URL}/products/${userID}/${productID}`,status);
+  }
+
 }
