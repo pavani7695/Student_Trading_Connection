@@ -54,12 +54,17 @@ export class ProductService {
   }
 
   // * Edit products details
-  editProductDetail(editedProduct: Product): Observable<any> {
+  public editProductDetail(editedProduct: Product): Observable<any> {
     console.log("This is from service:"+editedProduct.productID)
     return this.http.put<any>(
       `${this.BASE_URL}/products/${editedProduct.productID}`,
       editedProduct
     );
+  }
+
+  // * Get products of a user buy status = 1 (Request inspections) *
+  public getProductsWithStatus(userID:number, status: number): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}/products/${userID}/${status}`);
   }
 
 }
