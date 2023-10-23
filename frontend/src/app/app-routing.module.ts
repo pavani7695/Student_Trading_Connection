@@ -8,6 +8,7 @@ import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SellerDetailsComponent } from './seller-details/seller-details.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
     children: [
       { path: "sell", component: SellComponent },
       { path: "buy", component: BuyComponent },
-      { path: "profile", component: ProfileComponent },
+      { path: "profile", component: ProfileComponent }, 
+      { path: "cart", component: CartComponent}
     ],
   },
   { path: "buy/:id", component: ProductDetailsComponent },
