@@ -1,13 +1,18 @@
-import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
-import { RegistrationService } from '../services/registration/registration.service';
-import { Router } from '@angular/router';
-import { ProductService } from '../services/product-service/product.service';
-import { Product } from '../models/product/product';
-import { UserService } from '../services/user-service/user.service';
-import { User } from '../models/user/user';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  ViewChild,
+} from "@angular/core";
+import { RegistrationService } from "../services/registration/registration.service";
+import { Router } from "@angular/router";
+import { ProductService } from "../services/product-service/product.service";
+import { Product } from "../models/product/product";
+import { UserService } from "../services/user-service/user.service";
+import { User } from "../models/user/user";
 import { MatDialog } from "@angular/material/dialog";
-import 'bootstrap/js/dist/modal'; // Import Bootstrap's modal module
-import { NgForm } from '@angular/forms';
+import "bootstrap/js/dist/modal"; // Import Bootstrap's modal module
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-sell",
@@ -100,11 +105,12 @@ export class SellComponent {
   // --------------------------------------------------------------------------------------------------------------------------------
   // * Edit Product
 
-  editedProduct: any = {}; // Current product being edited
+  editedProduct = new Product(); // Current product being edited
+
   showPopup: boolean = false; // Controls the visibility of the edit popup
 
   // Method to edit a product
-  editProduct(product: any) {
+  editProduct(product: Product) {
     // Set the product to be edited
     this.editedProduct = { ...product };
     this.showPopup = true;
@@ -113,7 +119,16 @@ export class SellComponent {
   // Method to update the product
   updateProduct() {
     // Implement the logic to update the product details (e.g., in your service)
-
+    this.productService.editProductDetail(this.editedProduct).subscribe(
+      (data) => {
+        console.log("Product edited" + JSON.stringify(this.editedProduct));
+        alert("Product updated");
+        this.getProductSoldByMe();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     // After updating, close the popup
     this.showPopup = false;
   }
@@ -121,6 +136,5 @@ export class SellComponent {
   // Method to close the edit popup
   closePopup() {
     this.showPopup = false;
-    this.editedProduct = {};
   }
 }

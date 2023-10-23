@@ -53,4 +53,13 @@ export class ProductService {
     return this.http.delete<any>(`${this.BASE_URL}/products/${productID}`);
   }
 
+  // * Edit products details
+  editProductDetail(editedProduct: Product): Observable<any> {
+    console.log("This is from service:"+editedProduct.productID)
+    return this.http.put<any>(
+      `${this.BASE_URL}/products/${editedProduct.productID}`,
+      editedProduct
+    );
+  }
+
 }

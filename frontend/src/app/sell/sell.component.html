@@ -73,43 +73,92 @@
       <h2>{{ product.title }}</h2>
       <p>Price: ${{ product.price }}</p>
       <button class="btn edit" (click)="editProduct(product)">Edit</button>
-      <button class="btn delete" (click)="deleteProduct(product)">Delete</button>
+      <button class="btn delete" (click)="deleteProduct(product)">
+        Delete
+      </button>
     </div>
   </div>
 
+  <!-- * Popup for -->
+  <div class="overlay" *ngIf="showPopup"></div>
+  <div class="popup" *ngIf="showPopup">
+    <!-- Your popup content goes here -->
+    <div class="popup-container">
+      <div class="popup-content">
+        <h2>Edit Product</h2>
 
+        <form (ngSubmit)="updateProduct()">
+          <!-- Fields from form-1 -->
+          <div class="form-group">
+            <label for="editedTitle">Title:</label>
+            <input
+              type="text"
+              id="editedTitle"
+              [(ngModel)]="editedProduct.title"
+              name="editedTitle"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editedDescription">Description:</label>
+            <textarea
+              id="editedDescription"
+              [(ngModel)]="editedProduct.description"
+              name="editedDescription"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="editedPrice">Price:</label>
+            <input
+              type="number"
+              id="editedPrice"
+              [(ngModel)]="editedProduct.price"
+              name="editedPrice"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editedCategory">Category:</label>
+            <input
+              type="text"
+              id="editedCategory"
+              [(ngModel)]="editedProduct.category"
+              name="editedCategory"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editedIsGroupPurchase">Is Group Purchase:</label>
+            <select
+              id="editedIsGroupPurchase"
+              [(ngModel)]="editedProduct.isGroupPurchase"
+              name="editedIsGroupPurchase"
+            >
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editedStatus">Status:</label>
+            <select
+              id="editedStatus"
+              [(ngModel)]="editedProduct.status"
+              name="editedStatus"
+            >
+              <option value="0">Not Sold</option>
+              <option value="1">Inspection request</option>
+              <option value="2">Inspection request approved</option>
+              <option value="3">Product Sold</option>
+            </select>
+          </div>
 
+          <button type="submit">Save Changes</button>
+        </form>
+        <!-- End of edit product form -->
 
-<!-- * Popup for -->
-<div class="overlay" *ngIf="showPopup"></div>
-<div class="popup" *ngIf="showPopup">
-  <!-- Your popup content goes here -->
-  <div class="popup-container">
-    <div class="popup-content">
-      <h2>Edit Product</h2>
-
-      <form (ngSubmit)="updateProduct()">
-        <!-- Include input fields for editing the product details -->
-        <!-- Example: -->
-        <div class="form-group">
-          <label for="editedTitle">Title:</label>
-          <input type="text" id="editedTitle" [(ngModel)]="editedProduct.title" name="editedTitle" required />
-        </div>
-
-        <!-- Add other input fields for description, price, category, isGroupPurchase, and status -->
-
-        <button type="submit">Save Changes</button>
-      </form>
-
-      <button (click)="closePopup()">Cancel</button>
+        <button (click)="closePopup()">Cancel</button>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-</div>
-<!-- Include this in your main component's template where you list products -->
-<!-- <app-edit-popup [showPopup]="showEditPopup" [editedProduct]="selectedProduct"></app-edit-popup> -->
-
