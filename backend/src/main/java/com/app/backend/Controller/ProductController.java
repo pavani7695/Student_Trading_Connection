@@ -112,4 +112,11 @@ public class ProductController {
             return new ResponseEntity<>("Product status and buyerID updated successfully", HttpStatus.OK);
         }
 
+//    Get all available products
+    @GetMapping("/available/{userID}")
+    public List<Product> getAvailableProducts(@PathVariable int userID) {
+        List<Product> availableProducts = productService.getAvailableProducts(userID);
+        return availableProducts;
+    }
+
 }

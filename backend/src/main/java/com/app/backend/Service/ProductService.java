@@ -41,5 +41,10 @@ public class ProductService {
         return productRepository.findByBuyerIDAndStatus(buyerID, status);
     }
 
+    public List<Product> getAvailableProducts(int userID) {
+        return productRepository.findByStatusAndSellerIDNotAndBuyerID(0, userID, -1);
+
+    }
+
 }
 

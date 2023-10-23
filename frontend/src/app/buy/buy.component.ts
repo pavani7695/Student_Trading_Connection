@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { ProductService } from "../services/product-service/product.service";
 import { Router } from "@angular/router";
 import { Product } from "../models/product/product";
+import { User } from "../models/user/user";
+import { UserService } from "../services/user-service/user.service";
 
 @Component({
   selector: "app-buy",
@@ -9,18 +11,21 @@ import { Product } from "../models/product/product";
   styleUrls: ["./buy.component.scss"],
 })
 export class BuyComponent {
+  user = new User();
   products: Product[] = [];
   ngOnInit(): void {}
 
   constructor(
     private _productService: ProductService,
-    private _router: Router
+    private _router: Router,
+    private _userService: UserService
   ) {
     this.getProducts();
+    this.user = this._userService.getUser();
   }
 
   getProducts() {
-    this._productService.getProductsFromRemote().subscribe(
+    this._productService.getAvailableProductsFromRemote(this.user.id).subscribe(
       (data) => {
         console.log(data);
         this.products = data;

@@ -25,6 +25,11 @@ export class ProductService {
     return this.http.get<any>(`${this.BASE_URL}/products`);
   }
 
+  // * Get available products
+  public getAvailableProductsFromRemote(userID: number): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}/products/available/${userID}`);
+  }
+
   // * Get products by ProductID
   public getProductByIdFromRemote(productID: number): Observable<any> {
     return this.http.get<any>(`${this.BASE_URL}/products/${productID}`);
@@ -55,7 +60,7 @@ export class ProductService {
 
   // * Edit products details
   public editProductDetail(editedProduct: Product): Observable<any> {
-    console.log("This is from service:"+editedProduct.productID)
+    console.log("This is from service:" + editedProduct.productID);
     return this.http.put<any>(
       `${this.BASE_URL}/products/${editedProduct.productID}`,
       editedProduct
@@ -63,13 +68,22 @@ export class ProductService {
   }
 
   // * Get products of a user buy status = 1 (Request inspections) *
-  public getProductsWithStatus(userID:number, status: number): Observable<any> {
+  public getProductsWithStatus(
+    userID: number,
+    status: number
+  ): Observable<any> {
     return this.http.get<any>(`${this.BASE_URL}/products/${userID}/${status}`);
   }
 
   // * Update product status *
-  public updateProductStatus(userID: number, productID: number, status: number): Observable<any> {
-    return this.http.patch<any>(`${this.BASE_URL}/products/${userID}/${productID}`,status);
+  public updateProductStatus(
+    userID: number,
+    productID: number,
+    status: number
+  ): Observable<any> {
+    return this.http.patch<any>(
+      `${this.BASE_URL}/products/${userID}/${productID}`,
+      status
+    );
   }
-
 }

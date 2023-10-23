@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product,Integer> {
     List<Product> findBySellerID(int sellerID);
     List<Product> findByBuyerIDAndStatus(int buyerID, int status);
+    List<Product> findByStatusAndSellerIDNotAndBuyerID(int i, int userID, int i1);
 }
 
 
