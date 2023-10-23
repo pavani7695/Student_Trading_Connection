@@ -10,6 +10,7 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Integer> {
     List<Product> findBySellerID(int sellerID);
+    List<Product> findByBuyerIDAndStatus(int buyerID, int status);
 }
 
 

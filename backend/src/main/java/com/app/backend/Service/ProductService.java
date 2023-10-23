@@ -37,5 +37,9 @@ public class ProductService {
         productRepository.deleteById(productID);
     }
 
+    public List<Product> fetchProductByBuyerIDAndStatus(int buyerID, int status){
+        return productRepository.findByBuyerIDAndStatus(buyerID, status);
+    }
+
 }
 

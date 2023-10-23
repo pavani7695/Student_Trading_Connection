@@ -77,4 +77,8 @@ public class ProductController {
         return updateProduct;
     }
 
+    @GetMapping("{buyerID}/{status}")
+    public List<Product> getProductsByStatusAndUserId(@PathVariable int buyerID, @PathVariable int status){
+        return productService.fetchProductByBuyerIDAndStatus(buyerID,status);
+    }
 }

@@ -11,8 +11,6 @@ import { User } from '../models/user/user';
   styleUrls: ["./product-details.component.scss"],
 })
 export class ProductDetailsComponent {
-
-
   product: Product = new Product();
   seller: User = new User();
 
@@ -24,9 +22,7 @@ export class ProductDetailsComponent {
     this.product = this._productService.getProduct();
   }
 
-  onInit() {
-
-  }
+  onInit() {}
 
   // getProductsByID() {
   //   this._productService
@@ -54,9 +50,20 @@ export class ProductDetailsComponent {
   //       );
   // }
 
-  viewSellerDetailsBySendingProduct(product: Product){
+  // * Seller Details *
+  viewSellerDetailsBySendingProduct(product: Product) {
     // this._router.navigate(["sellerDetails"]);
     this._productService.setProduct(product);
     this._router.navigate(["/sellerDetails", product.sellerID]);
+  }
+
+  // * Inperson Inspection Request *
+  inPersonInspectionRequest(product: Product) {
+    console.log("InPerson Inspection Request for Product:" + product.title);
+  }
+
+  //  * Buy *
+  buy(product: Product) {
+    console.log("Buy for Product:" + product.title);
   }
 }
