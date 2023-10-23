@@ -6,6 +6,8 @@ import com.app.backend.Repository.ProductRepository;
 import com.app.backend.Service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -81,4 +83,33 @@ public class ProductController {
     public List<Product> getProductsByStatusAndUserId(@PathVariable int buyerID, @PathVariable int status){
         return productService.fetchProductByBuyerIDAndStatus(buyerID,status);
     }
+
+
+        @PatchMapping("/{userID}/{productID}")
+        public ResponseEntity<String> updateProductStatusAndBuyerID(
+                @PathVariable int userID,
+                @PathVariable int productID,
+                @RequestBody int status) {
+            // Retrieve the product by productID
+            Product product = productService.getProductByID(productID);
+
+            if (product == null) {
+                return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
+            }
+
+            // Check if the product's sellerID matches the provided userID (authorization check)
+            if (product.getStatus() != 0 || product.getBuyerID() != -1) {
+                return new ResponseEntity<>("Product sold", HttpStatus.FORBIDDEN);
+            }
+
+            // Update the product status and buyerID
+            product.setStatus(status);
+            product.setBuyerID(userID);
+
+            // Save the updated product
+            productService.saveProduct(product);
+
+            return new ResponseEntity<>("Product status and buyerID updated successfully", HttpStatus.OK);
+        }
+
 }
