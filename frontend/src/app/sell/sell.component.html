@@ -72,8 +72,44 @@
     <div *ngFor="let product of myProducts" class="product-card">
       <h2>{{ product.title }}</h2>
       <p>Price: ${{ product.price }}</p>
-      <!-- <button (click)="editProduct(product)">Edit</button> -->
-      <button (click)="deleteProduct(product)">Delete</button>
+      <button class="btn edit" (click)="editProduct(product)">Edit</button>
+      <button class="btn delete" (click)="deleteProduct(product)">Delete</button>
+    </div>
+  </div>
+
+
+
+
+<!-- * Popup for -->
+<div class="overlay" *ngIf="showPopup"></div>
+<div class="popup" *ngIf="showPopup">
+  <!-- Your popup content goes here -->
+  <div class="popup-container">
+    <div class="popup-content">
+      <h2>Edit Product</h2>
+
+      <form (ngSubmit)="updateProduct()">
+        <!-- Include input fields for editing the product details -->
+        <!-- Example: -->
+        <div class="form-group">
+          <label for="editedTitle">Title:</label>
+          <input type="text" id="editedTitle" [(ngModel)]="editedProduct.title" name="editedTitle" required />
+        </div>
+
+        <!-- Add other input fields for description, price, category, isGroupPurchase, and status -->
+
+        <button type="submit">Save Changes</button>
+      </form>
+
+      <button (click)="closePopup()">Cancel</button>
     </div>
   </div>
 </div>
+
+
+
+
+</div>
+<!-- Include this in your main component's template where you list products -->
+<!-- <app-edit-popup [showPopup]="showEditPopup" [editedProduct]="selectedProduct"></app-edit-popup> -->
+

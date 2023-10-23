@@ -99,4 +99,28 @@ export class SellComponent {
 
   // --------------------------------------------------------------------------------------------------------------------------------
   // * Edit Product
+
+  editedProduct: any = {}; // Current product being edited
+  showPopup: boolean = false; // Controls the visibility of the edit popup
+
+  // Method to edit a product
+  editProduct(product: any) {
+    // Set the product to be edited
+    this.editedProduct = { ...product };
+    this.showPopup = true;
+  }
+
+  // Method to update the product
+  updateProduct() {
+    // Implement the logic to update the product details (e.g., in your service)
+
+    // After updating, close the popup
+    this.showPopup = false;
+  }
+
+  // Method to close the edit popup
+  closePopup() {
+    this.showPopup = false;
+    this.editedProduct = {};
+  }
 }
