@@ -12,7 +12,9 @@ import { User } from '../models/user/user';
   styleUrls: ["./cart.component.scss"],
 })
 export class CartComponent {
-  products: Product[] = [];
+  inspectionRequestedProducts: Product[] = [];
+  purchasedProducts: Product[] = [];
+  inspectiononRequestedApprovedProducts: Product[] = [];
   user = new User();
 
   constructor(
@@ -24,12 +26,34 @@ export class CartComponent {
     this.getProductsWithStatus();
   }
 
-  // * Get product with status=1 [Requested for inspection]
   getProductsWithStatus() {
-    console.log("UserName: " + this.user.userName);
-    this._productService.getProductsWithStatus(this.user.id,1).subscribe(
+    // console.log("UserName: " + this.user.userName);
+    // * Get product with status=1 [Inperson Requested Product]
+    this._productService.getProductsWithStatus(this.user.id, 1).subscribe(
       (data) => {
-        this.products = data;
+        this.inspectionRequestedProducts = data;
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    // * Get product with status=3 [Purchased Products]
+    this._productService.getProductsWithStatus(this.user.id, 3).subscribe(
+      (data) => {
+        this.purchasedProducts = data;
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    // * Get product with status=2 [Inperson Inspection Request approved Products]
+    this._productService.getProductsWithStatus(this.user.id, 2).subscribe(
+      (data) => {
+        this.inspectiononRequestedApprovedProducts = data;
         console.log(data);
       },
       (error) => {

@@ -1,9 +1,34 @@
 <div class="main-container">
-  <div *ngFor="let product of products">
-  <div class="product-card">
-    <h2>{{ product.title }}</h2>
-    <p>Price: ${{ product.price }}</p>
-    <!-- <button (click)="viewProduct(product)">View</button> -->
+  <div *ngIf="inspectionRequestedProducts.length > 0" class="inPersonRequestedProducts">
+    <h1>Requested for In-Person Inspection:</h1>
+    <div *ngFor="let product of inspectionRequestedProducts">
+      <div class="product-card">
+        <h2>{{ product.title }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <!-- <button (click)="viewProduct(product)">View</button> -->
+      </div>
+    </div>
   </div>
-</div>
+
+  <div *ngIf="inspectiononRequestedApprovedProducts.length > 0" class="purchasedProducts">
+    <h1>Products Ordered:</h1>
+    <div *ngFor="let product of inspectiononRequestedApprovedProducts">
+      <div class="product-card">
+        <h2>{{ product.title }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <!-- <button (click)="viewProduct(product)">View</button> -->
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="purchasedProducts.length > 0" class="purchasedProducts">
+    <h1>Products Ordered:</h1>
+    <div *ngFor="let product of purchasedProducts">
+      <div class="product-card">
+        <h2>{{ product.title }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <!-- <button (click)="viewProduct(product)">View</button> -->
+      </div>
+    </div>
+  </div>
 </div>
