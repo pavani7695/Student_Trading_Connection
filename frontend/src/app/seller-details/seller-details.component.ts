@@ -23,6 +23,12 @@ export class SellerDetailsComponent {
     this.getUserById();
   }
 
+  // * Back button 
+  goToProductDetailsComponent(){
+    this._router.navigate(["/buy/{product.id}"]);
+  }
+
+  // * Get Seller Details
   getUserById() {
     this._userService.getUserByIDFromRemote(this.product.sellerID).subscribe(
       (data) => {

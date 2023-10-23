@@ -3,8 +3,9 @@
   <h2 class="product-title">{{ product.title }}</h2>
   <p class="product-price">Price: ${{ product.price }}</p>
   <p class="product-description">Description: {{ product.description }}</p>
-  <button (click)="viewSellerDetailsBySendingProduct(product)" class="view-seller-button">View Seller Details</button>
-  <button (click)="inPersonInspectionRequest(product)" class="view-seller-button">In-Person Inspection Request</button>
-  <button (click)="buy(product)" class="view-seller-button">Buy</button>
+  <button (click)="goToBuyComponent()" class="button">Back to Home</button>
+  <button (click)="viewSellerDetailsBySendingProduct(product)" class="button">View Seller Details</button>
+  <button (click)="inPersonInspectionRequest(product)" class="button">In-Person Inspection Request</button>
+  <button (click)="buy(product)" class="button">Buy</button>
 </div>
 </div>

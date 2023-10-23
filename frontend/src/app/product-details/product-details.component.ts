@@ -26,31 +26,10 @@ export class ProductDetailsComponent {
 
   onInit() {}
 
-  // getProductsByID() {
-  //   this._productService
-  //     .getProductByIdFromRemote(this.product.productID)
-  //     .subscribe(
-  //       (data) => {
-  //         console.log("ProductByID: " + data);
-  //         this.product = data;
-  //       },
-  //       (error) => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-  // getSellerByID(){
-  //       this._userService.getUserByID(this.product.sellerID).subscribe(
-  //         (data) => {
-  //           this.seller = data;
-  //           console.log("Seller Name: " + this.seller.userName);
-  //         },
-  //         (error) => {
-  //           console.log(error);
-  //         }
-  //       );
-  // }
+  // * Back button
+  goToBuyComponent() {
+    this._router.navigate(["/home/buy"]);
+  }
 
   // * Seller Details *
   viewSellerDetailsBySendingProduct(product: Product) {
@@ -59,22 +38,7 @@ export class ProductDetailsComponent {
     this._router.navigate(["/sellerDetails", product.sellerID]);
   }
 
-  // * Inperson Inspection Request *
-  // inPersonInspectionRequest(product: Product) {
-  //   this._productService
-  //     .updateProductStatus(this.user.id, this.product.productID, 1)
-  //     .subscribe(
-  //       (data) => {
-  //         console.log("InPerson Inspection Request Sent: " + data);
-  //         alert("Inspection Request sent successfully");
-  //       },
-  //       (error) => {
-  //         console.log("InPerson Inspection Request Error: " + error);
-  //         alert("Inspection Request already sent");
-  //       }
-  //     );
-  // }
-
+  // * In-person Inspection Request *
   inPersonInspectionRequest(product: Product) {
     this._productService
       .updateProductStatus(this.user.id, this.product.productID, 1)
@@ -85,7 +49,9 @@ export class ProductDetailsComponent {
         },
         (error) => {
           if (error.status === 403) {
-            alert("Inspection Request already sent, check cart for more information");
+            alert(
+              "Inspection Request already sent, check cart for more information"
+            );
           } else {
             alert("Inspection Request sent successfully");
           }
