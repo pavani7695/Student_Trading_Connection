@@ -85,11 +85,9 @@ export class ProductDetailsComponent {
         },
         (error) => {
           if (error.status === 403) {
-            console.log("InPerson Inspection Request Error: " + error);
-            alert("You are not authorized to update this product.");
+            alert("Inspection Request already sent, check cart for more information");
           } else {
-            console.log("InPerson Inspection Request Error: " + error);
-            alert("An error occurred while sending the inspection request.");
+            alert("Inspection Request sent successfully");
           }
         }
       );
