@@ -46,14 +46,19 @@ export class ProductDetailsComponent {
         (data) => {
           console.log("InPerson Inspection Request Sent: " + data);
           alert("Inspection Request sent successfully");
+          this._router.navigate(["/home/cart"]);
         },
         (error) => {
           if (error.status === 403) {
             alert(
               "Inspection Request already sent, check cart for more information"
             );
+            this._router.navigate(["/home/cart"]);
+
           } else {
             alert("Inspection Request sent successfully");
+            this._router.navigate(["/home/cart"]);
+
           }
         }
       );
