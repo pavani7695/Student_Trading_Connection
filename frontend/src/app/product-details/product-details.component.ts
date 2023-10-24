@@ -38,8 +38,18 @@ export class ProductDetailsComponent {
     this._router.navigate(["/sellerDetails", product.sellerID]);
   }
 
-  // * In-person Inspection Request *
-  inPersonInspectionRequest(product: Product) {
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * In-person Inspection Request Confirmation*
+  inPersonInspectionRequest(product: Product){
+    const confirmation = window.confirm(
+      "Are you sure you want to request in-person inspection for this product?"
+    );
+    if (confirmation) {
+      this.inPersonInspectionRequestLogic(product);
+    }
+  }
+  // * In-person Inspection Request Logic*
+  inPersonInspectionRequestLogic(product: Product) {
     this._productService
       .updateProductStatusAndBuyerID(this.user.id, this.product.productID, 1)
       .subscribe(
@@ -57,8 +67,19 @@ export class ProductDetailsComponent {
       );
   }
 
-  //  * Buy *
-  buy(product: Product) {
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * Buy Product Confirmation *
+  buyProduct(product: Product) {
+    const confirmation = window.confirm(
+      "Are you sure you want to buy this product?"
+    );
+    if (confirmation) {
+      this.buyProductLogic(product);
+    }
+  }
+
+  //  * Buy Product *
+  buyProductLogic(product: Product) {
     console.log("Buy for Product: " + product.title);
     this._productService
       .updateProductStatusAndBuyerID(this.user.id, product.productID, 3)
@@ -66,6 +87,7 @@ export class ProductDetailsComponent {
         (data) => {
           alert("Product Purchased successfully");
           console.log("Product status updated to 3: " + data);
+          this._router.navigate(["/home/cart"]);
         },
         (error) => {
           alert("Unable to Purchase Product");

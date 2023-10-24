@@ -165,8 +165,19 @@ export class SellComponent {
   }
 
   // --------------------------------------------------------------------------------------------------------------------------------
-  // * Accept In-Person Inspection Products
+  // * Accept In-Person Inspection Products Confirmation
+
   acceptInPersonRequest(product: Product) {
+    const confirmation = window.confirm(
+      "Are you sure you want to accept in-person inspection for this product?"
+    );
+    if (confirmation) {
+      this.acceptInPersonRequestLogic(product);
+    }
+  }
+
+  // * Accept In-Person Inspection Products Logic
+  acceptInPersonRequestLogic(product: Product) {
     this.productService.updateProductStatus(product.productID, 2).subscribe(
       (data) => {
         alert("In-Person Inspection Accepted");
