@@ -43,7 +43,6 @@ public class ProductService {
 
     public List<Product> getAvailableProducts(int userID) {
         return productRepository.findByStatusAndSellerIDNotAndBuyerID(0, userID, -1);
-
     }
 
 }

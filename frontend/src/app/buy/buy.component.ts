@@ -20,8 +20,9 @@ export class BuyComponent {
     private _router: Router,
     private _userService: UserService
   ) {
-    this.getProducts();
     this.user = this._userService.getUser();
+    this.getProducts();
+
   }
 
   getProducts() {
