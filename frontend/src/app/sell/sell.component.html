@@ -67,7 +67,7 @@
   </div>
 
   <!-- * Display the products sold by this user -->
-  <div class="products-section">
+  <!-- <div class="products-section">
     <h2>My Products</h2>
     <div *ngFor="let product of myProducts" class="product-card">
       <h2>{{ product.title }}</h2>
@@ -77,20 +77,44 @@
         Delete
       </button>
     </div>
-  </div>
+  </div> -->
 
-  <!-- * Recived Request for In-person Inspection -->
-  <div *ngIf="product.status==1" class="products-section">
-    <h2>My Products</h2>
-    <div *ngFor="let product of myProducts" class="product-card">
-      <h2>{{ product.title }}</h2>
-      <p>Price: ${{ product.price }}</p>
-      <button class="btn edit" (click)="editProduct(product)">Edit</button>
-      <button class="btn delete" (click)="deleteProduct(product)">
-        Delete
-      </button>
-    </div>
+<!-- * Display the products bvased on status-->
+<div class="products-section" *ngIf="availableProducts.length > 0">
+  <h2>For sale</h2>
+  <div *ngFor="let product of availableProducts" class="product-card">
+    <h2>{{ product.title }}</h2>
+    <p>Price: ${{ product.price }}</p>
+    <button class="btn edit" (click)="editProduct(product)">Edit</button>
+    <button class="btn delete" (click)="deleteProduct(product)">Delete</button>
   </div>
+</div>
+
+<div class="products-section" *ngIf="inPersonInspectionProducts.length > 0">
+  <h2>In-Person Inspection Request</h2>
+  <div *ngFor="let product of inPersonInspectionProducts" class="product-card">
+    <h2>{{ product.title }}</h2>
+    <p>Price: ${{ product.price }}</p>
+  </div>
+</div>
+
+<div class="products-section" *ngIf="acceptedInspectionProducts.length > 0">
+  <h2>Accepted In-Person Inspection</h2>
+  <div *ngFor="let product of acceptedInspectionProducts" class="product-card">
+    <h2>{{ product.title }}</h2>
+    <p>Price: ${{ product.price }}</p>
+  </div>
+</div>
+
+<div class="products-section" *ngIf="soldProducts.length > 0">
+  <h2>Sold Products</h2>
+  <div *ngFor="let product of soldProducts" class="product-card">
+    <h2>{{ product.title }}</h2>
+    <p>Price: ${{ product.price }}</p>
+    <button class="btn delete" (click)="deleteProduct(product)">Delete</button>
+  </div>
+</div>
+
 
   <!-- * Popup for -->
   <div class="overlay" *ngIf="showPopup"></div>

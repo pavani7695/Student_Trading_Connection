@@ -23,6 +23,14 @@ export class SellComponent {
   product = new Product();
   user = new User();
   msg = "";
+  myProducts: Product[] = [];
+
+  // Separate arrays for products with different statuses
+  availableProducts: Product[] = [];
+  inPersonInspectionProducts: Product[] = [];
+  acceptedInspectionProducts: Product[] = [];
+  soldProducts: Product[] = [];
+
   constructor(
     private productService: ProductService,
     private userService: UserService,
@@ -43,11 +51,11 @@ export class SellComponent {
   addProduct() {
     this.productService.addProductFromRemote(this.product).subscribe(
       (data) => {
-        console.log(
-          "Responce recived while adding a product" +
-            JSON.stringify(this.product)
-        );
-        console.log("Seller:" + this.user.userName);
+        // console.log(
+        //   "Responce recived while adding a product" +
+        //     JSON.stringify(this.product)
+        // );
+        // console.log("Seller:" + this.user.userName);
         this.msg = "Product Added";
         this.getProductSoldByMe();
         alert(this.msg);
@@ -61,12 +69,12 @@ export class SellComponent {
 
   // --------------------------------------------------------------------------------------------------------------------------------
   // * Get Product which I am selling
-  myProducts: Product[] = [];
   getProductSoldByMe() {
     this.productService.getProductsBySellerIDFromRemote(this.user.id).subscribe(
       (data) => {
-        console.log("Products sold by me: " + JSON.stringify(data));
+        // console.log("Products sold by me: " + JSON.stringify(data));
         this.myProducts = data;
+        this.categorizeProducts();
       },
       (error) => {
         console.log(error);
@@ -92,7 +100,7 @@ export class SellComponent {
   deleteProductLogic(product: Product) {
     this.productService.deleteProductFromRemote(product.productID).subscribe(
       (data) => {
-        console.log("Product deleted" + JSON.stringify(data));
+        // console.log("Product deleted" + JSON.stringify(data));
         this.getProductSoldByMe();
         alert("Product Deleted");
       },
@@ -121,7 +129,7 @@ export class SellComponent {
     // Implement the logic to update the product details (e.g., in your service)
     this.productService.editProductDetail(this.editedProduct).subscribe(
       (data) => {
-        console.log("Product edited" + JSON.stringify(this.editedProduct));
+        // console.log("Product edited" + JSON.stringify(this.editedProduct));
         alert("Product updated");
         this.getProductSoldByMe();
       },
@@ -136,5 +144,23 @@ export class SellComponent {
   // Method to close the edit popup
   closePopup() {
     this.showPopup = false;
+  }
+
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * Categorize Product
+  categorizeProducts() {
+    console.log("My:" + this.myProducts.length);
+    this.availableProducts = this.myProducts.filter(
+      (product) => product.status === 0
+    );
+    this.inPersonInspectionProducts = this.myProducts.filter(
+      (product) => product.status === 1
+    );
+    this.acceptedInspectionProducts = this.myProducts.filter(
+      (product) => product.status === 2
+    );
+    this.soldProducts = this.myProducts.filter(
+      (product) => product.status === 3
+    );
   }
 }
