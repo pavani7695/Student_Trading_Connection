@@ -41,9 +41,9 @@ export class ProductDetailsComponent {
     this._router.navigate(["/sellerDetails", product.sellerID]);
   }
 
-  // --------------------------------------------------------------------------------------------------------------------------------
+  // *--------------------------------------------------------------------------------------------------------------------------------
   // * In-person Inspection Request Confirmation*
-  inPersonInspectionRequest(product: Product){
+  inPersonInspectionRequest(product: Product) {
     const confirmation = window.confirm(
       "Are you sure you want to request in-person inspection for this product?"
     );
@@ -70,7 +70,7 @@ export class ProductDetailsComponent {
       );
   }
 
-  // --------------------------------------------------------------------------------------------------------------------------------
+  // *--------------------------------------------------------------------------------------------------------------------------------
   // * Buy Product Confirmation *
   buyProduct(product: Product) {
     const confirmation = window.confirm(
@@ -97,5 +97,20 @@ export class ProductDetailsComponent {
           console.log("Error updating product status: " + error);
         }
       );
+  }
+  // *--------------------------------------------------------------------------------------------------------------------------------
+  // * Buy Product in Group *
+  buyProductInGroup(product: Product) {
+    const confirmation = window.confirm(
+      "Are you sure you want to buy this product in Group?"
+    );
+    if (confirmation) {
+      this.buyProductInGroupLogic(product);
+    }
+  }
+
+  buyProductInGroupLogic(product: Product) {
+    console.log("Product ",this.product.title," purchase in group by - "+ this.user.userName);
+    
   }
 }
