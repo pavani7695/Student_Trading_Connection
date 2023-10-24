@@ -16,6 +16,8 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
 
     @Query("SELECT p FROM Product p WHERE p.productID IN (SELECT gp.productID FROM GroupPurchases gp WHERE gp.buyerID = :userID)")
     List<Product> findProductsByBuyerIDFromGroupPurchases(int userID);
+
+    List<Product> findByIsGroupPurchaseAndSellerID(int i, int userID);
 }
 
 

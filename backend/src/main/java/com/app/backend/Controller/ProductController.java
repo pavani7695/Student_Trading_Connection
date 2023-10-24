@@ -134,4 +134,9 @@ public class ProductController {
         return availableProducts;
     }
 
+    // Get all products which is sold by user and is group purchases
+    @GetMapping("/groupPurchase/{userID}")
+    public List<Product> getGroupPurchaseProducts(@PathVariable int userID){
+        return productService.fetchGroupPurchaseProducts(userID);
+    }
 }
