@@ -22,6 +22,9 @@ export class ProductDetailsComponent {
   ) {
     this.product = this._productService.getProduct();
     this.user = this._userService.getUser();
+    if (this.user.id === undefined) {
+      this._router.navigate([""]);
+    }
   }
 
   onInit() {}

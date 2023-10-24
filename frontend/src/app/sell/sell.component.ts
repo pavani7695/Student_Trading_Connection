@@ -41,6 +41,9 @@ export class SellComponent {
     this.user = userService.getUser();
     this.product.sellerID = this.user.id;
     this.getProductSoldByMe();
+    if (this.user.id === undefined) {
+      this._router.navigate([""]);
+    }
   }
 
   ngOnInit() {}

@@ -24,6 +24,9 @@ export class CartComponent {
   ) {
     this.user = _userService.getUser();
     this.getProductsWithStatus();
+    if (this.user.id === undefined) {
+      this._router.navigate([""]);
+    }
   }
 
   getProductsWithStatus() {

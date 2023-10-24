@@ -17,6 +17,9 @@ export class ProfileComponent {
     private _userService: UserService
   ) {
     this.user = this._userService.getUser();
+    if (this.user.id === undefined) {
+      this._router.navigate([""]);
+    }
   }
 
   ngOnInit(): void {

@@ -21,6 +21,9 @@ export class SellerDetailsComponent {
   ) {
     this.product = this._productService.getProduct();
     this.getUserById();
+    if (this.product.productID === undefined) {
+      this._router.navigate([""]);
+    }
   }
 
   // * Back button 

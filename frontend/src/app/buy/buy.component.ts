@@ -22,7 +22,9 @@ export class BuyComponent {
   ) {
     this.user = this._userService.getUser();
     this.getProducts();
-
+    if (this.user.id === undefined) {
+      this._router.navigate([""]);
+    }
   }
 
   getProducts() {
@@ -39,7 +41,7 @@ export class BuyComponent {
 
   viewProduct(product: Product) {
     this._productService.setProduct(product);
-    console.log("ID:"+product.productID);
-    this._router.navigate(["/buy",product.productID]);
+    console.log("ID:" + product.productID);
+    this._router.navigate(["/buy", product.productID]);
   }
 }
