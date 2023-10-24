@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SellerDetailsComponent } from './seller-details/seller-details.component';
 import { CartComponent } from './cart/cart.component';
+import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailsComponent,
     SellerDetailsComponent,
     CartComponent,
+    BuyerDetailsComponent,
   ],
 
   // * 1. To use ngForm, add FormModule -> go to login/component.ts

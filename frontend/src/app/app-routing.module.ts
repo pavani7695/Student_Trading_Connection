@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SellerDetailsComponent } from './seller-details/seller-details.component';
 import { CartComponent } from './cart/cart.component';
+import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -20,12 +21,13 @@ const routes: Routes = [
     children: [
       { path: "sell", component: SellComponent },
       { path: "buy", component: BuyComponent },
-      { path: "profile", component: ProfileComponent }, 
-      { path: "cart", component: CartComponent}
+      { path: "profile", component: ProfileComponent },
+      { path: "cart", component: CartComponent },
     ],
   },
   { path: "buy/:id", component: ProductDetailsComponent },
-  { path: "sellerDetails/:id", component: SellerDetailsComponent},
+  { path: "sellerDetails/:id", component: SellerDetailsComponent },
+  { path: "buyerDetails/:id", component: BuyerDetailsComponent },
 ];
 
 @NgModule({

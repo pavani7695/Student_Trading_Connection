@@ -13,6 +13,7 @@ import { User } from "../models/user/user";
 import { MatDialog } from "@angular/material/dialog";
 import "bootstrap/js/dist/modal"; // Import Bootstrap's modal module
 import { NgForm } from "@angular/forms";
+import { data } from "jquery";
 
 @Component({
   selector: "app-sell",
@@ -163,23 +164,28 @@ export class SellComponent {
     );
   }
 
-
   // --------------------------------------------------------------------------------------------------------------------------------
   // * Accept In-Person Inspection Products
   acceptInPersonRequest(product: Product) {
-    this.productService
-      .updateProductStatus(product.productID, 2)
-      .subscribe(
-        (data) => {
-          alert("In-Person Inspection Accepted");
-          this.getProductSoldByMe();
-          this.categorizeProducts();
-          console.log("Product status updated to 2: " + data);
-        },
-        (error) => {
-          alert("Unable to accept In-Person Requests");
-          console.log("Error updating product status: " + error);
-        }
-      );
+    this.productService.updateProductStatus(product.productID, 2).subscribe(
+      (data) => {
+        alert("In-Person Inspection Accepted");
+        this.getProductSoldByMe();
+        this.categorizeProducts();
+        console.log("Product status updated to 2: " + data);
+      },
+      (error) => {
+        alert("Unable to accept In-Person Requests");
+        console.log("Error updating product status: " + error);
+      }
+    );
+  }
+
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * Buyer Details
+  viewBuyerDetails(product: Product) {
+    // this._router.navigate(["sellerDetails"]);
+    this.productService.setProduct(product);
+    this._router.navigate(["/buyerDetails", product.buyerID]);
   }
 }
