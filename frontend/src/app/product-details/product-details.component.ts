@@ -111,6 +111,17 @@ export class ProductDetailsComponent {
 
   buyProductInGroupLogic(product: Product) {
     console.log("Product ",this.product.title," purchase in group by - "+ this.user.userName);
-    
+    this._productService
+      .addToGroupPurchases(this.product.productID, this.user.id)
+      .subscribe(
+        (data) => {
+          alert("Product Purchased successfully in Group");
+          this._router.navigate(["/home/cart"]);
+        },
+        (error) => {
+          alert("Unable to Purchase Product");
+          console.log("Error updating product status: " + error);
+        }
+      );
   }
 }

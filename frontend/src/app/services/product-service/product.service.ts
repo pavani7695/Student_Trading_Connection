@@ -75,13 +75,15 @@ export class ProductService {
     return this.http.get<any>(`${this.BASE_URL}/products/${userID}/${status}`);
   }
 
-  // * Update product status *
+  // * Update product status and buyerID*
   public updateProductStatusAndBuyerID(
     userID: number,
     productID: number,
     status: number
   ): Observable<any> {
-    console.log('UserID'+userID+' is updated'+productID+' status'+ status);
+    console.log(
+      "UserID" + userID + " is updated" + productID + " status" + status
+    );
     return this.http.patch(
       `${this.BASE_URL}/products/${userID}/${productID}`,
       status,
@@ -89,6 +91,7 @@ export class ProductService {
     );
   }
 
+  // * Update product status *
   public updateProductStatus(
     productID: number,
     status: number
@@ -99,4 +102,12 @@ export class ProductService {
       { responseType: "text" }
     );
   }
+
+  // * Add to group Purchases *
+  public addToGroupPurchases(productID: number, buyerID: number): Observable<any> {
+  return this.http.post<any>(
+    `${this.BASE_URL}/groupPurchaseProducts/${productID}/${buyerID}`,null
+  );
+}
+
 }
