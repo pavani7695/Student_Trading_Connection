@@ -3,6 +3,7 @@
   <div class="product-card">
     <h2>{{ product.title }}</h2>
     <p>Price: ${{ product.price }}</p>
+    <p class="groupPurchasesMsg" *ngIf="product.isGroupPurchase!=0">Group Purchase</p>
     <button (click)="viewProduct(product)">View</button>
   </div>
 </div>

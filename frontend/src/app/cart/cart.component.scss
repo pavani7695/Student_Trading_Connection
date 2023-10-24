@@ -22,10 +22,16 @@
   margin: 0;
 }
 
-.product-card p {
-  font-size: 1.2rem;
-  margin: 0;
-  color: #888;
+.product-card {
+  .groupPurchasesMsg {
+    color: green;
+    font-size: 10px;
+  }
+  p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #888;
+  }
 }
 
 .product-card button {
