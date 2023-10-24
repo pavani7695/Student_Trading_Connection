@@ -7,7 +7,7 @@
   <button (click)="viewSellerDetailsBySendingProduct(product)" class="button">View Seller Details</button>
   <button *ngIf="product.status==0" (click)="inPersonInspectionRequest(product)" class="button">In-Person Inspection Request</button>
   <p *ngIf="product.status==1">In-person Request sent</p>
-  <button *ngIf="product.status!=3 && product.isGroupPurchase  != 1 && product.status!=4" (click)="buyProduct(product)" class="button">Buy</button>
+  <button *ngIf="product.status!=3 && product.isGroupPurchase  != 1" (click)="buyProduct(product)" class="button">Buy</button>
   <button *ngIf="product.status != 3 && product.isGroupPurchase == 1" (click)="buyProductInGroup(product)" class="button">Buy in Group</button>
   <p *ngIf="product.status==3">Product Purchased</p>
 </div>

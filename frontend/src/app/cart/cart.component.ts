@@ -88,16 +88,4 @@ export class CartComponent {
         }
       );
   }
-
-  printLength() {
-    console.log(
-      "inspectionRequestedProducts" + this.inspectionRequestedProducts.length
-    );
-    console.log("purchasedProducts" + this.purchasedProducts.length);
-    console.log(
-      "inspectiononRequestedApprovedProducts" +
-        this.inspectiononRequestedApprovedProducts.length
-    );
-    console.log("groupPurchasedProducts" + this.groupPurchasedProducts.length);
-  }
 }

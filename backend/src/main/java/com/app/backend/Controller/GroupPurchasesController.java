@@ -28,7 +28,7 @@ public class GroupPurchasesController {
         Product product = productService.getProductByID(productID);
 
         // Update the product status to 4 [Group Product]
-        product.setStatus(4);
+//        product.setStatus(4);
 
         // Save the updated product
         productService.saveProduct(product);
