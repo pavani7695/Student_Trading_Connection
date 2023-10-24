@@ -5,7 +5,9 @@
   <p class="product-description">Description: {{ product.description }}</p>
   <button (click)="goToBuyComponent()" class="button">Back to Home</button>
   <button (click)="viewSellerDetailsBySendingProduct(product)" class="button">View Seller Details</button>
-  <button (click)="inPersonInspectionRequest(product)" class="button">In-Person Inspection Request</button>
-  <button (click)="buy(product)" class="button">Buy</button>
+  <button *ngIf="product.status==0" (click)="inPersonInspectionRequest(product)" class="button">In-Person Inspection Request</button>
+  <p *ngIf="product.status==1">In-person Request sent</p>
+  <button *ngIf="product.status!=3" (click)="buy(product)" class="button">Buy</button>
+  <p *ngIf="product.status==3">Product Purchased</p>
 </div>
 </div>

@@ -61,4 +61,10 @@ export class CartComponent {
       }
     );
   }
+
+  viewProduct(product: Product) {
+    this._productService.setProduct(product);
+    console.log("ID:" + product.productID);
+    this._router.navigate(["/buy", product.productID]);
+  }
 }
