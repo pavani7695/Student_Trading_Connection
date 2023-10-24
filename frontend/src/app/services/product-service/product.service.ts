@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Product } from 'src/app/models/product/product';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Product } from "src/app/models/product/product";
 
 @Injectable({
   providedIn: "root",
@@ -104,10 +104,19 @@ export class ProductService {
   }
 
   // * Add to group Purchases *
-  public addToGroupPurchases(productID: number, buyerID: number): Observable<any> {
-  return this.http.post<any>(
-    `${this.BASE_URL}/groupPurchaseProducts/${productID}/${buyerID}`,null
-  );
-}
-
+  public addToGroupPurchases(
+    productID: number,
+    buyerID: number
+  ): Observable<any> {
+    return this.http.post<any>(
+      `${this.BASE_URL}/groupPurchaseProducts/${productID}/${buyerID}`,
+      null
+    );
+  }
+  // * Get all the products which are group purchased by the user *
+  public getGroupPurchasesProductsByUser(userID: number): Observable<any> {
+    return this.http.get<any>(
+      `${this.BASE_URL}/groupPurchaseProducts/${userID}`
+    );
+  }
 }

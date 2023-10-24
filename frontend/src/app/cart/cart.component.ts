@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { ProductService } from '../services/product-service/product.service';
-import { Router } from '@angular/router';
-import { Product } from '../models/product/product';
-import { data } from 'jquery';
-import { UserService } from '../services/user-service/user.service';
-import { User } from '../models/user/user';
+import { Component } from "@angular/core";
+import { ProductService } from "../services/product-service/product.service";
+import { Router } from "@angular/router";
+import { Product } from "../models/product/product";
+import { data } from "jquery";
+import { UserService } from "../services/user-service/user.service";
+import { User } from "../models/user/user";
 
 @Component({
   selector: "app-cart",
@@ -29,6 +29,7 @@ export class CartComponent {
     if (this.user.id === undefined) {
       this._router.navigate([""]);
     }
+    this.groupPurchasedItems();
   }
 
   getProductsWithStatus() {
@@ -67,12 +68,36 @@ export class CartComponent {
     );
   }
 
-  
-
+  // * View the product details
   viewProduct(product: Product) {
     this._productService.setProduct(product);
     console.log("ID:" + product.productID);
     this._router.navigate(["/buy", product.productID]);
   }
-  
+
+  // * View all the products which are group Purchased
+  groupPurchasedItems() {
+    this._productService
+      .getGroupPurchasesProductsByUser(this.user.id)
+      .subscribe(
+        (data) => {
+          this.groupPurchasedProducts = data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  printLength() {
+    console.log(
+      "inspectionRequestedProducts" + this.inspectionRequestedProducts.length
+    );
+    console.log("purchasedProducts" + this.purchasedProducts.length);
+    console.log(
+      "inspectiononRequestedApprovedProducts" +
+        this.inspectiononRequestedApprovedProducts.length
+    );
+    console.log("groupPurchasedProducts" + this.groupPurchasedProducts.length);
+  }
 }
