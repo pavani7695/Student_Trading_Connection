@@ -53,31 +53,9 @@
           <option value="1">Yes</option>
         </select>
       </div>
-      <!-- <div class="form-group">
-        <label for="status">Status:</label>
-        <select id="status" [(ngModel)]="product.status" name="status">
-          <option value="0">Not Sold</option>
-          <option value="1">Inspection request</option>
-          <option value="2">Inspection request approved</option>
-          <option value="3">Product Sold</option>
-        </select>
-      </div> -->
       <button type="submit">Add Product</button>
     </form>
   </div>
-
-  <!-- * Display the products sold by this user -->
-  <!-- <div class="products-section">
-    <h2>My Products</h2>
-    <div *ngFor="let product of myProducts" class="product-card">
-      <h2>{{ product.title }}</h2>
-      <p>Price: ${{ product.price }}</p>
-      <button class="btn edit" (click)="editProduct(product)">Edit</button>
-      <button class="btn delete" (click)="deleteProduct(product)">
-        Delete
-      </button>
-    </div>
-  </div> -->
 
 <!-- * Display the products bvased on status-->
 <div class="products-section" *ngIf="availableProducts.length > 0">
