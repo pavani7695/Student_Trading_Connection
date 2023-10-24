@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { ProductService } from '../services/product-service/product.service';
-import { Product } from '../models/product/product';
-import { UserService } from '../services/user-service/user.service';
-import { User } from '../models/user/user';
+import { Component } from "@angular/core";
+import { Route, Router } from "@angular/router";
+import { ProductService } from "../services/product-service/product.service";
+import { Product } from "../models/product/product";
+import { UserService } from "../services/user-service/user.service";
+import { User } from "../models/user/user";
 
 @Component({
   selector: "app-product-details",
@@ -49,23 +49,28 @@ export class ProductDetailsComponent {
           this._router.navigate(["/home/cart"]);
         },
         (error) => {
-          if (error.status === 403) {
-            alert(
-              "Inspection Request already sent, check cart for more information"
-            );
-            this._router.navigate(["/home/cart"]);
-
-          } else {
-            alert("Inspection Request sent successfully");
-            this._router.navigate(["/home/cart"]);
-
-          }
+          alert(
+            "Inspection Request already sent, check cart for more information"
+          );
+          this._router.navigate(["/home/cart"]);
         }
       );
   }
 
   //  * Buy *
   buy(product: Product) {
-    console.log("Buy for Product:" + product.title);
+    console.log("Buy for Product: " + product.title);
+    this._productService
+      .updateProductStatus(this.user.id, product.productID, 3)
+      .subscribe(
+        (data) => {
+          alert("Product Purchased successfully");
+          console.log("Product status updated to 3: " + data);
+        },
+        (error) => {
+          alert("Unable to Purchase Product");
+          console.log("Error updating product status: " + error);
+        }
+      );
   }
 }

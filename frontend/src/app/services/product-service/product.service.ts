@@ -81,9 +81,10 @@ export class ProductService {
     productID: number,
     status: number
   ): Observable<any> {
-    return this.http.patch<any>(
+    return this.http.patch(
       `${this.BASE_URL}/products/${userID}/${productID}`,
-      status
+      status,
+      { responseType: "text" }
     );
   }
 }

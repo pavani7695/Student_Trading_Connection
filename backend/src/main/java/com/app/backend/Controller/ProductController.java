@@ -98,9 +98,9 @@ public class ProductController {
             }
 
             // Check if the product's sellerID matches the provided userID (authorization check)
-            if (product.getStatus() != 0 || product.getBuyerID() != -1) {
-                return new ResponseEntity<>("Product sold", HttpStatus.FORBIDDEN);
-            }
+//            if (product.getStatus() != 0 || product.getBuyerID() != -1) {
+//                return new ResponseEntity<>("Product sold", HttpStatus.FORBIDDEN);
+//            }
 
             // Update the product status and buyerID
             product.setStatus(status);
