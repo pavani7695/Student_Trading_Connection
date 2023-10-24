@@ -109,6 +109,7 @@ export class ProductDetailsComponent {
     }
   }
 
+  // * Buy Product in Group Logic
   buyProductInGroupLogic(product: Product) {
     console.log("Product ",this.product.title," purchase in group by - "+ this.user.userName);
     this._productService
