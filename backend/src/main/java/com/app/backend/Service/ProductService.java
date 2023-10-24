@@ -45,5 +45,12 @@ public class ProductService {
         return productRepository.findByStatusAndSellerIDNotAndBuyerID(0, userID, -1);
     }
 
+
+
+    public List<Product> getProductsByBuyerIDFromGroupPurchases(int userID) {
+        return productRepository.findProductsByBuyerIDFromGroupPurchases(userID);
+    }
+
+
 }
 

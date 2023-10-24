@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div *ngIf="inspectiononRequestedApprovedProducts.length > 0" class="purchasedProducts">
+  <div *ngIf="inspectiononRequestedApprovedProducts.length > 0" class="inspectiononRequestedApprovedProducts">
     <h1>In-person Request Approved:</h1>
     <div *ngFor="let product of inspectiononRequestedApprovedProducts">
       <div class="product-card">
@@ -24,6 +24,17 @@
   <div *ngIf="purchasedProducts.length > 0" class="purchasedProducts">
     <h1>Products Ordered:</h1>
     <div *ngFor="let product of purchasedProducts">
+      <div class="product-card">
+        <h2>{{ product.title }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <button (click)="viewProduct(product)">View</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="groupPurchasedProducts.length > 0" class="groupPurchasedProducts">
+    <h1>Group Purchased Products:</h1>
+    <div *ngFor="let product of groupPurchasedProducts">
       <div class="product-card">
         <h2>{{ product.title }}</h2>
         <p>Price: ${{ product.price }}</p>

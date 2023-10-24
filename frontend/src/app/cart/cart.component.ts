@@ -15,6 +15,8 @@ export class CartComponent {
   inspectionRequestedProducts: Product[] = [];
   purchasedProducts: Product[] = [];
   inspectiononRequestedApprovedProducts: Product[] = [];
+  groupPurchasedProducts: Product[] = [];
+
   user = new User();
 
   constructor(
@@ -64,6 +66,8 @@ export class CartComponent {
       }
     );
   }
+
+  
 
   viewProduct(product: Product) {
     this._productService.setProduct(product);

@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200") // Allow requests from http://localhost:4200
 @RequestMapping("/groupPurchaseProducts")
@@ -31,6 +33,11 @@ public class GroupPurchasesController {
         // Save the updated product
         productService.saveProduct(product);
         return groupPurchasesService.saveGroupPurchases(groupPurchases);
+    }
+
+    @GetMapping("{userID}")
+    public List<Product> getProductsByBuyerIDFromGroupPurchases(@PathVariable int userID){
+        return productService.getProductsByBuyerIDFromGroupPurchases(userID);
     }
 
 }
