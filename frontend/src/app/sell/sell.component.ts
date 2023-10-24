@@ -149,7 +149,6 @@ export class SellComponent {
   // --------------------------------------------------------------------------------------------------------------------------------
   // * Categorize Product
   categorizeProducts() {
-    console.log("My:" + this.myProducts.length);
     this.availableProducts = this.myProducts.filter(
       (product) => product.status === 0
     );
@@ -162,5 +161,25 @@ export class SellComponent {
     this.soldProducts = this.myProducts.filter(
       (product) => product.status === 3
     );
+  }
+
+
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * Accept In-Person Inspection Products
+  acceptInPersonRequest(product: Product) {
+    this.productService
+      .updateProductStatus(product.productID, 2)
+      .subscribe(
+        (data) => {
+          alert("In-Person Inspection Accepted");
+          this.getProductSoldByMe();
+          this.categorizeProducts();
+          console.log("Product status updated to 2: " + data);
+        },
+        (error) => {
+          alert("Unable to accept In-Person Requests");
+          console.log("Error updating product status: " + error);
+        }
+      );
   }
 }

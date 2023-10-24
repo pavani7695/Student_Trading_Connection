@@ -76,13 +76,25 @@ export class ProductService {
   }
 
   // * Update product status *
-  public updateProductStatus(
+  public updateProductStatusAndBuyerID(
     userID: number,
     productID: number,
     status: number
   ): Observable<any> {
+    console.log('UserID'+userID+' is updated'+productID+' status'+ status);
     return this.http.patch(
       `${this.BASE_URL}/products/${userID}/${productID}`,
+      status,
+      { responseType: "text" }
+    );
+  }
+
+  public updateProductStatus(
+    productID: number,
+    status: number
+  ): Observable<any> {
+    return this.http.patch(
+      `${this.BASE_URL}/products/updateStatus/${productID}`,
       status,
       { responseType: "text" }
     );

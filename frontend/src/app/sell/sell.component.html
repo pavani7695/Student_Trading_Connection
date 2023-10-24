@@ -1,7 +1,8 @@
 <div class="main-container">
+  <!-- *----------------------------------------------------------------------------------------- -->
+  <!-- * Add product -->
   <div class="add-product">
     <h2>Add Product</h2>
-
     <form (ngSubmit)="addProduct()" #addProductForm="ngForm">
       <div class="form-group">
         <label for="title">Title:</label>
@@ -57,44 +58,56 @@
     </form>
   </div>
 
-<!-- * Display the products bvased on status-->
-<div class="products-section" *ngIf="availableProducts.length > 0">
-  <h2>For sale</h2>
-  <div *ngFor="let product of availableProducts" class="product-card">
-    <h2>{{ product.title }}</h2>
-    <p>Price: ${{ product.price }}</p>
-    <button class="btn edit" (click)="editProduct(product)">Edit</button>
-    <button class="btn delete" (click)="deleteProduct(product)">Delete</button>
+  <!-- *----------------------------------------------------------------------------------------- -->
+  <!-- * Display the products bvased on status-->
+  <div class="products-section" *ngIf="availableProducts.length > 0">
+    <h2>For sale</h2>
+    <div *ngFor="let product of availableProducts" class="product-card">
+      <h2>{{ product.title }}</h2>
+      <p>Price: ${{ product.price }}</p>
+      <button class="btn edit" (click)="editProduct(product)">Edit</button>
+      <button class="btn delete" (click)="deleteProduct(product)">
+        Delete
+      </button>
+    </div>
   </div>
-</div>
 
-<div class="products-section" *ngIf="inPersonInspectionProducts.length > 0">
-  <h2>In-Person Inspection Request</h2>
-  <div *ngFor="let product of inPersonInspectionProducts" class="product-card">
-    <h2>{{ product.title }}</h2>
-    <p>Price: ${{ product.price }}</p>
+  <div class="products-section" *ngIf="inPersonInspectionProducts.length > 0">
+    <h2>In-Person Inspection Request</h2>
+    <div
+      *ngFor="let product of inPersonInspectionProducts"
+      class="product-card"
+    >
+      <h2>{{ product.title }}</h2>
+      <p>Price: ${{ product.price }}</p>
+      <button class="btn accept" (click)="acceptInPersonRequest(product)">Accept</button>
+    </div>
   </div>
-</div>
 
-<div class="products-section" *ngIf="acceptedInspectionProducts.length > 0">
-  <h2>Accepted In-Person Inspection</h2>
-  <div *ngFor="let product of acceptedInspectionProducts" class="product-card">
-    <h2>{{ product.title }}</h2>
-    <p>Price: ${{ product.price }}</p>
+  <div class="products-section" *ngIf="acceptedInspectionProducts.length > 0">
+    <h2>Accepted In-Person Inspection</h2>
+    <div
+      *ngFor="let product of acceptedInspectionProducts"
+      class="product-card"
+    >
+      <h2>{{ product.title }}</h2>
+      <p>Price: ${{ product.price }}</p>
+    </div>
   </div>
-</div>
 
-<div class="products-section" *ngIf="soldProducts.length > 0">
-  <h2>Sold Products</h2>
-  <div *ngFor="let product of soldProducts" class="product-card">
-    <h2>{{ product.title }}</h2>
-    <p>Price: ${{ product.price }}</p>
-    <button class="btn delete" (click)="deleteProduct(product)">Delete</button>
+  <div class="products-section" *ngIf="soldProducts.length > 0">
+    <h2>Sold Products</h2>
+    <div *ngFor="let product of soldProducts" class="product-card">
+      <h2>{{ product.title }}</h2>
+      <p>Price: ${{ product.price }}</p>
+      <button class="btn delete" (click)="deleteProduct(product)">
+        Delete
+      </button>
+    </div>
   </div>
-</div>
 
-
-  <!-- * Popup for -->
+  <!-- *----------------------------------------------------------------------------------------- -->
+  <!-- * Popup to edit the Product -->
   <div class="overlay" *ngIf="showPopup"></div>
   <div class="popup" *ngIf="showPopup">
     <!-- Your popup content goes here -->
@@ -154,24 +167,9 @@
               <option value="1">Yes</option>
             </select>
           </div>
-          <!-- <div class="form-group">
-            <label for="editedStatus">Status:</label>
-            <select
-              id="editedStatus"
-              [(ngModel)]="editedProduct.status"
-              name="editedStatus"
-            >
-              <option value="0">Not Sold</option>
-              <option value="1">Inspection request</option>
-              <option value="2">Inspection request approved</option>
-              <option value="3">Product Sold</option>
-            </select>
-          </div> -->
-
           <button type="submit">Save Changes</button>
         </form>
         <!-- End of edit product form -->
-
         <button (click)="closePopup()">Cancel</button>
       </div>
     </div>

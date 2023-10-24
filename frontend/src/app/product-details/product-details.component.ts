@@ -41,7 +41,7 @@ export class ProductDetailsComponent {
   // * In-person Inspection Request *
   inPersonInspectionRequest(product: Product) {
     this._productService
-      .updateProductStatus(this.user.id, this.product.productID, 1)
+      .updateProductStatusAndBuyerID(this.user.id, this.product.productID, 1)
       .subscribe(
         (data) => {
           console.log("InPerson Inspection Request Sent: " + data);
@@ -61,7 +61,7 @@ export class ProductDetailsComponent {
   buy(product: Product) {
     console.log("Buy for Product: " + product.title);
     this._productService
-      .updateProductStatus(this.user.id, product.productID, 3)
+      .updateProductStatusAndBuyerID(this.user.id, product.productID, 3)
       .subscribe(
         (data) => {
           alert("Product Purchased successfully");
