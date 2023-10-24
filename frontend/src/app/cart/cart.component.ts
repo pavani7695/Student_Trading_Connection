@@ -67,4 +67,5 @@ export class CartComponent {
     console.log("ID:" + product.productID);
     this._router.navigate(["/buy", product.productID]);
   }
+  
 }
