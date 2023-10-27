@@ -119,4 +119,16 @@ export class ProductService {
       `${this.BASE_URL}/groupPurchaseProducts/${userID}`
     );
   }
+
+  // * Get and set the product Id for getting users of froupPurchaseProductsByUser
+
+  groupPurchaseProductID!: number;
+
+  setGroupPurchaseProductID(productID: number) {
+    this.groupPurchaseProductID = productID;
+  }
+
+  getGroupPurchaseProductsByUser(){
+    return this.groupPurchaseProductID;
+  }
 }

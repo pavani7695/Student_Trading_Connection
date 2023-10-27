@@ -32,4 +32,10 @@ export class UserService {
     const url = `http://localhost:9292/users/${userId}`;
     return this._http.get<any>(url);
   }
+
+  // Get all the users buying a group product
+  fetchUsersByProductForGroupPurchase(product_id: number): Observable<User[]> {
+    const url = `http://localhost:9292/users/getUsersByProductGroupPurchases/${product_id}`;
+    return this._http.get<User[]>(url);
+  }
 }

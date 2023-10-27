@@ -30,4 +30,8 @@ public class UserService {
     public User getUserById(int userId) {
         return repo.findById(userId).orElse(null);
     }
+
+    public List<User> findUsersByProductForGroupPurchase(int product_id) {
+        return repo.getUsersByProductForGroupPurchase(product_id);
+    }
 }

@@ -202,4 +202,11 @@ export class SellComponent {
     this.productService.setProduct(product);
     this._router.navigate(["/buyerDetails", product.buyerID]);
   }
+
+  // --------------------------------------------------------------------------------------------------------------------------------
+  // * View Buyers purchased a Group Purchase Product
+  viewBuyersInGroupProduct(product: Product) {
+    this.productService.setGroupPurchaseProductID(product.productID);
+    this._router.navigate(["/GroupPurchasedBuyerComponent"]);
+  }
 }

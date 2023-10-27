@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { SellerDetailsComponent } from './seller-details/seller-details.component';
 import { CartComponent } from './cart/cart.component';
 import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
+import { GroupPurchasedBuyerComponent } from './group-purchased-buyer/group-purchased-buyer.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: "buy/:id", component: ProductDetailsComponent },
   { path: "sellerDetails/:id", component: SellerDetailsComponent },
   { path: "buyerDetails/:id", component: BuyerDetailsComponent },
+  { path: "GroupPurchasedBuyerComponent", component: GroupPurchasedBuyerComponent }, //
 ];
 
 @NgModule({

@@ -1,0 +1,37 @@
+<!-- <div class="main-container">
+  <div class="container">
+    <div *ngFor="let user of users" class="user-info">
+      <h1>User: {{ user.userName }}</h1>
+      <p>Email: {{ user.emailId }}</p>
+      <p>Phone: {{ user.phone }}</p>
+
+      <div class="user-address">
+        <h2>Address:</h2>
+        <p>{{ user.address }}</p>
+      </div>
+      <div class="user-profile">
+        <h2>Profile Level:</h2>
+        <p>{{ user.profileLevel }}</p>
+      </div>
+    </div>
+  </div>
+  <button (click)="goToSellComponent()" class="button">Back</button>
+</div> -->
+<div class="main-container">
+  <div *ngFor="let user of users" class="user-card">
+    <h1>User: {{ user.userName }}</h1>
+    <p>Email: {{ user.emailId }}</p>
+    <p>Phone: {{ user.phone }}</p>
+    <div class="user-details">
+      <div class="user-address">
+        <h2>Address:</h2>
+        <p>{{ user.address }}</p>
+      </div>
+      <div class="user-profile">
+        <h2>Profile Level:</h2>
+        <p>{{ user.profileLevel }}</p>
+      </div>
+    </div>
+  </div>
+  <button (click)="goToSellComponent()" class="button">Back</button>
+</div>

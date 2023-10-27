@@ -64,4 +64,8 @@ public class UserController {
         return user;
     }
 
-}
+    @GetMapping("/getUsersByProductGroupPurchases/{product_id}")
+    public List<User> fetchUsersByProductForGroupPurchase(@PathVariable int product_id) {
+        return service.findUsersByProductForGroupPurchase(product_id);
+    }
+    }
