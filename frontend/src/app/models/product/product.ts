@@ -6,6 +6,7 @@ export class Product {
   description!: string;
   price!: number;
   category!: string;
-  status: number=0;
-  isGroupPurchase: number=0;
+  status: number = 0;
+  isGroupPurchase: number = 0;
+  imageUrl!: String;
 }

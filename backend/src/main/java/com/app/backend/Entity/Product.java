@@ -23,4 +23,6 @@ public class Product {
     private String category;
     private int status = 0;
     private int isGroupPurchase = 0;
+    @Column(length = 5120)
+    private String imageUrl;
 }

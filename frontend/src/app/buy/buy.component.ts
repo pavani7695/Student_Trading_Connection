@@ -15,6 +15,9 @@ export class BuyComponent {
   products: Product[] = [];
   ngOnInit(): void {}
 
+  temp =
+    "https://pyxis.nymag.com/v1/imgs/7e3/0f3/bf2c486c88dd082e9b3b8f966047b6b188-bic-rice-cooker.2x.rsocial.w600.jpg";
+
   constructor(
     private _productService: ProductService,
     private _router: Router,
