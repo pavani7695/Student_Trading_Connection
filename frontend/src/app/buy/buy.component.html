@@ -1,10 +1,30 @@
 <div class="main-container">
-  <div *ngFor="let product of products">
-  <div class="product-card">
+  <div *ngFor="let product of products" class="product-card">
+    <img [src]="product.imageUrl" alt="{{ product.title }} image" class="product-image">
     <h2>{{ product.title }}</h2>
-    <p>Price: ${{ product.price }}</p>
-    <p class="groupPurchasesMsg" *ngIf="product.isGroupPurchase!=0">Group Purchase</p>
-    <button (click)="viewProduct(product)">View</button>
+    <p>{{ product.description | slice:0:100 }}...</p>
+    <p>Price: <span [class.sale-price]="product.isOnSale">${{ product.price }}</span></p>
+    <p *ngIf="product.isOnSale" class="original-price">${{ product.originalPrice }}</p>
+    <p *ngIf="product.stock > 0">In Stock</p>
+    <p *ngIf="product.stock === 0" class="out-of-stock">Out of Stock</p>
+    <div *ngIf="product.isGroupPurchase!=0" class="groupPurchasesMsg">Group Purchase</div>
+    <div class="rating">
+      <ng-container *ngFor="let star of [].constructor(5)">
+        <span [class.filled]="star < product.rating">★</span>
+      </ng-container>
+      <span>{{ product.rating }} ({{ product.reviewCount }} reviews)</span>
+    </div>
+    <div class="actions">
+      <button (click)="viewProduct(product)">View</button>
+      <button (click)="addToCart(product)" [disabled]="product.stock === 0">Add to Cart</button>
+      <button (click)="toggleWishlist(product)">♥ Wishlist</button>
+      <div *ngIf="product.allowQuantitySelection">
+        <label for="quantity">Qty:</label>
+        <input type="number" [(ngModel)]="product.quantity" min="1" id="quantity">
+      </div>
+    </div>
+    <div class="tags">
+      <span *ngFor="let tag of product.tags">{{ tag }}</span>
+    </div>
   </div>
-</div>
 </div>
